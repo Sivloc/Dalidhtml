@@ -1,16 +1,23 @@
+h1{
+    text-align: center;
+    color: goldenrod;
+}
+
+
+
 #start{
-    display: flex;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
     border: 2px solid;
     background-color: lightgrey;
     border-radius: 6px;
-
     cursor: pointer;
 }
-body{
-    align-items: center;
-    justify-content: center;
-}
 #classement{
+    display: block;
+    margin: auto;
+    margin-top: 30px;
     border: 2px solid;
     background-color: lightgrey;
     border-radius: 6px;
