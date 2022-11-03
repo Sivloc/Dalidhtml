@@ -1,9 +1,21 @@
 h1{
     text-align: center;
     color: goldenrod;
+    font-family: 'Alex Brush', handwriting;
+    font-size: 4cm;
+    margin-bottom: 0cm;
 }
-
-
+h2{
+    text-align: center;
+    border: 2px solid grey;
+    margin-left: 650px;
+    margin-right: 650px;
+    color:dimgrey;
+    background-color: lightgrey;
+}
+body{
+    background-color:midnightblue;
+}
 
 #start{
     display: block;
