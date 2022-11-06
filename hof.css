@@ -1,1 +1,48 @@
 #map { height: 180px; }
+
+#eg{
+    text-align: center;
+    color:black;
+    font-size: 1cm;
+    margin-left: 35%;
+    font-family: 'Acme', sans-serif;
+    border: 5px solid black;
+}
+#barre{
+    position: fixed;
+    top: 0px;
+    height: 2cm;
+    width: 100%;
+    background-color: aliceblue;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 0;
+}
+.test{
+    margin-right: 2cm;
+    font-size: 20px;
+}
+body{
+    margin-left: 0;
+    background-image: url("https://www.silamp.fr/Files/124801/Img/21/Projecteurs-blanc-froid.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.button_link {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.button_link:hover{
+    color: brown;
+}

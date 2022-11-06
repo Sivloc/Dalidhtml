@@ -10,8 +10,9 @@ h1{
     text-align: center;
     color:black;
     font-size: 1cm;
-    margin-left: 40%;
+    margin-left: 35%;
     font-family: 'Acme', sans-serif;
+    border: 5px solid black;
 }
 #barre{
     position: fixed;
@@ -31,19 +32,10 @@ h1{
 }
 body{
     margin-left: 0;
-    background-color:midnightblue;
     background-image: url("https://voi.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fvoi.2F2019.2F07.2F12.2F24008ee6-67b0-49df-bb2f-5dd0931fa642.2Ejpeg/1200x675/quality/80/dalida-son-dernier-amour-serait-il-la-cause-de-son-suicide-il-brise-le-silence.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-}/*
-ul{
-    display: grid;
-    float:inline-start;
 }
-li{
-    display: list-item;
-    text-align: -webkit-center;
-}*/
 #start{
     display: block;
     margin: auto;
@@ -54,7 +46,6 @@ li{
     cursor: pointer;
     font-size: 1cm;
 }
-/*
 .button_link {
     border: none;
     display: inline-block;
@@ -68,7 +59,10 @@ li{
     cursor: pointer;
     white-space: nowrap;
 }
-
+.button_link:hover{
+    color: brown;
+}
+/*
 .button_link {
     border: none;
     display: inline-block;
