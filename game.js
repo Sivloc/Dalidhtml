@@ -12,14 +12,16 @@ let slot5 = document.getElementById("slot5");
 
 class item {
     constructor(img,usable){
-        this.img = "..\images\bloc_default";
+        this.img = "../images/bloc_default";
         this.usable = false;
     }
 }
 
 function slot_fill(n,item){
     str = item.img;
-    n.innerHTML = "<img src="|str|"></img>";
+    n.innerHTML = "<img src='"+str+"'></img>";
+    console.log("fill");
+    console.log("<img src="+str+"></img>")
 }
 
 function slot_remove(n){
@@ -28,19 +30,20 @@ function slot_remove(n){
 
 function addItem(item){
     item.usable = true;
-    if(slot1.innerHTML == null){
+    console.log("add")
+    if(slot1.innerHTML == ""){
         slot_fill(slot1,item);
     }
-    else if(slot2.innerHTML == null){
+    else if(slot2.innerHTML == ""){
         slot_fill(slot2,item);
     }
-    else if(slot3.innerHTML == null){
+    else if(slot3.innerHTML == ""){
         slot_fill(slot3,item);
     }
-    else if(slot4.innerHTML == null){
+    else if(slot4.innerHTML == ""){
         slot_fill(slot4,item);
     }
-    else if(slot5.innerHTML == null){
+    else if(slot5.innerHTML == ""){
         slot_fill(slot5,item);
     }
 }
