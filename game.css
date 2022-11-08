@@ -1,5 +1,13 @@
 #map{
-    height: 180px;
+    width: 900px;
+    height: 500px;
+    padding: 20px;
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  
+    margin: -270px 0 0 -470px;
 }
 
 
@@ -20,4 +28,31 @@
     align-items: center;
     justify-content: flex-start;
     margin-top: 0;
+}
+
+.button_link {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.button_link:hover{
+    color: brown;
+}
+
+#eg{
+    text-align: center;
+    color:black;
+    font-size: 1cm;
+    margin-left: 35%;
+    font-family: 'Acme', sans-serif;
+    border: 5px solid black;
 }
