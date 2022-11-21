@@ -26,7 +26,16 @@
     </ul>
 
     <div id="map"></div>
+    <?php
+        if(isset($_POST['submit'])){
+            $pseudo = $_POST['pseudo'];
+            echo 'Pseudo : ' . $pseudo;
 
+            $link = mysqli_connect('localhost', 'root', 'root', 'players');
+            //$result = mysqli_query();
+        }
+
+    ?>
 
 
 
