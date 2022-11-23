@@ -25,6 +25,7 @@ function bloque(event){
 }
 
 function commencer(event){
+    event.preventDefault();
     console.log("Let's goo");
     window.location.href="game.html";
 }
