@@ -26,17 +26,6 @@
     </ul>
 
     <div id="map"></div>
-    <?php
-        if(isset($_POST['submit'])){
-            $pseudo = $_POST['pseudo'];
-            echo 'Pseudo : ' . $pseudo;
-
-            $link = mysqli_connect('localhost', 'root', 'root', 'players');
-            //$result = mysqli_query();
-        }
-
-    ?>
-
 
 
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"

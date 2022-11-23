@@ -14,17 +14,17 @@ function bloque(event){
 
     if(champ_pseudo.value == ''){
         form_OK = false;
+        console.log("C'est NON");
     }
 
     if(!form_OK){
         event.preventDefault();
         alert("Mets ton pseudo stp");
     }
-    console.log("C'est NON");
+    
 }
 
 function commencer(event){
-    event.preventDefault();
     console.log("Let's goo");
     window.location.href="game.html";
 }
