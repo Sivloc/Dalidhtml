@@ -44,7 +44,7 @@ let icone2 = new LeafIcon({iconUrl: '../images/img2'});
 
 L.marker([30.050, 31.235], {icon: greenIcon}).addTo(map).bindPopup("Résouds mon énigme pour une pipe");
 
-function addItem(item){
+function addItem(item){ 
     item.usable = true;
     console.log("add")
     if(slot1.innerHTML == ""){
