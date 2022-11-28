@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 23, 2022 at 09:14 PM
+-- Generation Time: Nov 28, 2022 at 05:39 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -33,21 +33,35 @@ CREATE TABLE `hof` (
   `score` int(11) NOT NULL,
   `classement` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `object`
+--
+
+CREATE TABLE `object` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL,
+  `ordre` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `object`
+--
+
+INSERT INTO `object` (`id`, `name`, `latitude`, `longitude`, `ordre`) VALUES
+(1, 'plante', 30.048361, 31.245389, 1),
+(2, 'aéroport', 30.114404, 31.400849, 2),
+(3, 'Appartement', 48.871099, 2.304455, 3),
+(4, 'Olympia', 48.870119, 2.328325, 4),
+(5, 'Montmartre', 48.886719, 2.341305, 5),
+(6, 'Sanremo', 43.816546, 7.77597, 6),
+(7, 'Palais des sports', 48.832714, 2.287051, 7);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
--- --------------------------------------------------------
-
---
--- Table structure for table 'objets'
---
-
-CREATE TABLE 'objets' (
-  'id' int NOT NULL,
-  'filepath' varchar NOT NULL,
-  'type' varchar NOT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-COMMIT;
