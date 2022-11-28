@@ -6,7 +6,7 @@ form_button.addEventListener('click', test);
 /*form_login.addEventListener('submit', commencer);
 form_button.addEventListener('click', commencer);*/
 
-let champ_pseudo = form_login.innerText["pseudo"];
+let champ_pseudo = form_login.innerHTML;
 
 function bloque(event){
 
@@ -33,7 +33,7 @@ function commencer(event){
 function test(event){
     let form_OK = true;
 
-    if(champ_pseudo.value == ''){
+    if(champ_pseudo == ''){
         form_OK = false;
         console.log("C'est NON");
     }
