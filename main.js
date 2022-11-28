@@ -32,9 +32,11 @@ function commencer(event){
 }*/
 
 function test(event){
+
     let form_OK = true;
     champ_pseudo = form_login.value;
     console.log(champ_pseudo);
+    
     if(champ_pseudo == ''){
         form_OK = false;
         console.log("C'est NON");
