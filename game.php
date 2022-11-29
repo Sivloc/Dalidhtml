@@ -25,7 +25,25 @@
         <li class="test" id="ressources"><b>Ressources</b></li>
         <li id="eg"><b>Escape Game</b></li>
     </ul>
-    
+    <?php
+
+    $objets = [];
+
+    $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase'); 
+    $results = mysqli_query($link, "SELECT * FROM object");
+    foreach($results as $result){
+        $id = $result['id'];
+        $lat = $result['latitude'];
+        $lon = $result['longitude'];
+        $name = $result['name'];
+        $objets[] = [$id,$name,$lon,$lat];
+        echo "<script>console.log('{$name}' );</script>";
+        echo "<script>console.log('{$id}' );</script>";
+        echo "<script>console.log('{$lon}' );</script>";
+        echo "<script>console.log('{$lat}' );</script>";
+    }
+    echo "<script>console.log('{$objets[0][1]}' );</script>";
+    ?>
     <div id="jeu">
         <div id="map"></div>
 
