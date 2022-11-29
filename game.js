@@ -5,6 +5,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
+var xhttp = new XMLHttpRequest();
 
 let slot1 = document.getElementById("slot1");
 let slot2 = document.getElementById("slot2");
