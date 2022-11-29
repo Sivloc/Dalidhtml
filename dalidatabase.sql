@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 28, 2022 at 05:39 PM
+-- Generation Time: Nov 29, 2022 at 03:09 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -33,6 +33,13 @@ CREATE TABLE `hof` (
   `score` int(11) NOT NULL,
   `classement` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `hof`
+--
+
+INSERT INTO `hof` (`id`, `pseudo`, `score`, `classement`) VALUES
+(1, 'test', 200, 1);
 
 -- --------------------------------------------------------
 
