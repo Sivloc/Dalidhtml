@@ -7,16 +7,17 @@ form_button.addEventListener('click', commencer);
 let champ_pseudo = '';
 
 function commencer(event){
+    
     let form_OK = true;
     champ_pseudo = form_login.value;
     console.log(champ_pseudo);
+
     if(champ_pseudo == ''){
         form_OK = false;
         console.log("C'est NON");
     }
     else if(champ_pseudo != ''){
         form_OK = true;
-        event.preventDefault();
         console.log("Let's goo");
         window.location.href="game.html";
     }

@@ -1,8 +1,10 @@
 let map = L.map('map').setView([30.050, 31.235], 13);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '© OpenStreetMap contributors'
 }).addTo(map);
+
 
 let slot1 = document.getElementById("slot1");
 let slot2 = document.getElementById("slot2");
@@ -38,11 +40,23 @@ let LeafIcon = L.Icon.extend({
         popupAnchor:  [-3, -76]
     }
 });
+let LeafIcon2 = L.Icon.extend({
+    options: {
+        iconSize:     [100, 100],
+        shadowSize:   [50, 64],
+        iconAnchor:   [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor:  [-3, -76]
+    }
+});
 let greenIcon = new LeafIcon({iconUrl: '../images/leaf-green.png'});
-let icone1 = new LeafIcon({iconUrl: '../images/img1'});
+let icone1 = new LeafIcon2({iconUrl: '../images/avion.png'});
 let icone2 = new LeafIcon({iconUrl: '../images/img2'});
 
-L.marker([30.050, 31.235], {icon: greenIcon}).addTo(map).bindPopup("Résouds mon énigme pour une pipe");
+L.marker([30.050, 31.235], {icon: greenIcon}).addTo(map).bindPopup("Naissance de Dalida au Caire le 17 janvier 1933");
+
+L.marker([30.114404, 31.420849], {icon: icone1}).addTo(map).bindPopup("Repérée par un réalisateur français, elle s'envole pour Paris le 24 décembre 1954");
+
 
 function addItem(item){ 
     item.usable = true;
