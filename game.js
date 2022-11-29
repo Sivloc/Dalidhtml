@@ -30,32 +30,17 @@ function slot_remove(n){
     n.innerHTML = null;
 }
 /*MARKERS DU JEU*/
-let LeafIcon = L.Icon.extend({
-    options: {
-        shadowUrl: '../images/leaf-shadow.png',
-        iconSize:     [38, 95],
-        shadowSize:   [50, 64],
-        iconAnchor:   [22, 94],
-        shadowAnchor: [4, 62],
-        popupAnchor:  [-3, -76]
-    }
-});
-let LeafIcon2 = L.Icon.extend({
-    options: {
-        iconSize:     [100, 100],
-        shadowSize:   [50, 64],
-        iconAnchor:   [22, 94],
-        shadowAnchor: [4, 62],
-        popupAnchor:  [-3, -76]
-    }
-});
-let greenIcon = new LeafIcon({iconUrl: '../images/leaf-green.png'});
-let icone1 = new LeafIcon2({iconUrl: '../images/avion.png'});
-let icone2 = new LeafIcon({iconUrl: '../images/img2'});
 
+let greenIcon = L.icon({iconUrl: '../images/leaf-green.png', iconSize: [38, 95]});
 L.marker([30.050, 31.235], {icon: greenIcon}).addTo(map).bindPopup("Naissance de Dalida au Caire le 17 janvier 1933");
 
-L.marker([30.114404, 31.420849], {icon: icone1}).addTo(map).bindPopup("Repérée par un réalisateur français, elle s'envole pour Paris le 24 décembre 1954");
+let planeIcon = L.icon({iconUrl: '../images/avion.png', iconSize: [150, 150]});
+L.marker([30.114404, 31.420849], {icon: planeIcon}).addTo(map).bindPopup("Repérée par un réalisateur français, elle s'envole pour Paris le 24 décembre 1954");
+
+let appartIcon = L.icon({iconUrl: '../images/appartement.png', iconSize: [100, 100]});
+L.marker([48.871099, 2.304455], {icon: appartIcon}).addTo(map).bindPopup("Installation dans un appartement proche des Champs Élysées où elle fait la rencontre d'Alain Delon, son voisin de palier");
+
+let alainIcon = L.icon({iconUrl: '../images/alain_delon.jpg', iconSize: [349, 440]});
 
 
 function addItem(item){ 
