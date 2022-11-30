@@ -44,6 +44,16 @@
     }
     echo "<script>console.log('{$objets[0][1]}' );</script>";
     ?>
+        <script type="text/javascript">
+    var obj_array = <?php echo json_encode($objets); ?>; // create the JavaScript array
+    initArray(obj_array); // use it
+    function initArray(obj_array){
+        for(var i = 0; i < array.length; i++){
+            alert(array[i]);
+        }
+    }
+    </script>
+
     <div id="jeu">
         <div id="map"></div>
 
