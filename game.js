@@ -45,6 +45,7 @@ var boutonRecupJournal = L.popup({minWidth : 375,content: '<center><img src="'+o
 let lucien_morisse = false;
 let sanremodone = false;
 let partition_in_inventaire = false;
+let disque_in_inventaire = false;
 let code_resolu = false;
 let boule_disco_in_inventaire = false;
 let PDSdone = false;
@@ -65,7 +66,7 @@ let olympiaIcon = L.icon({iconUrl: obj_array[3][5], iconSize: [obj_array[3][6], 
 olympialain = L.marker([obj_array[3][3],obj_array[3][2]], {icon: olympiaIcon}).addTo(map);
 
 let montmartreIcon = L.icon({iconUrl: obj_array[4][5], iconSize: [obj_array[4][6], obj_array[4][7]]});
-L.marker([obj_array[4][3],obj_array[4][2]], {icon: montmartreIcon}).addTo(map);
+montmartreMarker = L.marker([obj_array[4][3],obj_array[4][2]], {icon: montmartreIcon}).addTo(map);
 
 let sanremoIcon = L.icon({iconUrl: obj_array[5][5], iconSize: [obj_array[5][6], obj_array[5][7]]});
 sanremomicro = L.marker([obj_array[5][3],obj_array[5][2]],{icon: sanremoIcon}).addTo(map);
@@ -81,8 +82,10 @@ disquecode = L.marker([obj_array[8][3],obj_array[8][2]], {icon: dalidisqueIcon})
 let journalIcon = L.icon({iconUrl: obj_array[9][5], iconSize: [obj_array[9][6], obj_array[9][7]]});
 L.marker([obj_array[9][3],obj_array[9][2]], {icon: journalIcon}).addTo(map).bindPopup(boutonRecupJournal);
 
-let mogadorIcon = 'prout';
-mogadorMarker = L.marker([NULL,NULL], {icon: NULL}).addTo(map);
+let mogadorIcon = L.icon({iconUrl: obj_array[12][5], iconSize: [obj_array[12][6], obj_array[12][7]]});
+mogadorMarker = L.marker([obj_array[12][3],obj_array[12][2]], {icon: mogadorIcon}).addTo(map);
+
+
 
 // GESTION DU ZOOM
 
@@ -122,12 +125,24 @@ function addItem(item){
 }
 
 //      Tous les listeners
+montmartreMarker.addEventListener('click',boheme);
 disquecode.addEventListener('click',enigme);
 olympialain.addEventListener('click',paroles);
 sanremomicro.addEventListener('click',sanremoconcert);
 PDSmarker.addEventListener('click',PDSconcert);
 mogadorMarker.addEventListener('click',mogadorFin);
 
+function boheme(){
+    let texte = prompt("Quel fameux chanteur apprécie Montmartre et ses lilas accrochés aux fenêtres?");
+    if(texte == 'Aznavour' || texte == 'aznavour'){
+        slot1.innerHTML = ("<img src='"+obj_array[8][5]+"', width = 160, height = 160 >");
+        montmartreMarker.remove();
+        disque_in_inventaire = true;
+    }
+    else{
+        alert('Donne moi juste son nom de famille !');
+    }
+}
 function enigme(){
     let code = prompt("What's your sign?");
     console.log(code);
