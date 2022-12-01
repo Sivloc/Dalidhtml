@@ -36,22 +36,34 @@
         $lat = $result['latitude'];
         $lon = $result['longitude'];
         $name = $result['name'];
-        $objets[] = [$id,$name,$lon,$lat];
+        $ordre = $result['ordre'];
+        $iconUrl = $result['iconUrl'];
+        $largeurIcon = $result['largeurIcon'];
+        $longueurIcon = $result['longueurIcon'];
+        $minZoom = $result['minZoom'];
+        $textePopup = $result['textePopup'];
+        $objets[] = [$id,$name,$lon,$lat,$ordre,$iconUrl,$largeurIcon,$longueurIcon,$minZoom,$textePopup];
         echo "<script>console.log('{$name}' );</script>";
         echo "<script>console.log('{$id}' );</script>";
         echo "<script>console.log('{$lon}' );</script>";
         echo "<script>console.log('{$lat}' );</script>";
+        echo "<script>console.log('{$ordre}' );</script>";
+        echo "<script>console.log('{$iconUrl}' );</script>";
+        echo "<script>console.log('{$largeurIcon}' );</script>";
+        echo "<script>console.log('{$longueurIcon}' );</script>";
+        echo "<script>console.log('{$minZoom}' );</script>";
+        echo "<script>console.log('{$textePopup}' );</script>";
     }
     echo "<script>console.log('{$objets[0][1]}' );</script>";
     ?>
         <script type="text/javascript">
     var obj_array = <?php echo json_encode($objets); ?>; // create the JavaScript array
-    initArray(obj_array); // use it
+    /*initArray(obj_array); // use it
     function initArray(obj_array){
-        for(var i = 0; i < array.length; i++){
-            alert(array[i]);
+        for(var i = 0; i < obj_array.length; i++){
+            alert(obj_array[i]);
         }
-    }
+    }*/
     </script>
 
     <div id="jeu">

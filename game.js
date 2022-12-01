@@ -32,43 +32,35 @@ function slot_remove(n){
 }
 
 
-function zoom(){
-
-    if(map.getZoom() >= 14){
-
-    }
-}
-
-
 
 
 /*MARKERS DU JEU*/
-let dalidaIcon = new L.icon({iconUrl: '../images/dalida_jeune.jpg', iconSize: [78, 100], popupAnchor: [0, -50]});
-L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindPopup("<center>Naissance de Dalida au Caire le 17 janvier 1933. <br/> A l'âge de 18 ans, elle participe au concours de Miss Egypte et gagne le premier prix ce qui va faire qu'elle va être engagée comme actrice pour tourner des films au Caire (le Hollywood de l'Orient). <br/><b>Trouvez l'aéroport du Caire !</b></center>");
+let dalidaIcon = new L.icon({iconUrl: obj_array[0][5], iconSize: [obj_array[0][6], obj_array[0][7]], popupAnchor: [0, -50]});
+L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindPopup(obj_array[0][9]);
 
 
 
 // unBindPopup
 
-let planeIcon = L.icon({iconUrl: '../images/avion.png', iconSize: [150, 150]});
-L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon}).addTo(map).bindPopup("<center>Repérée par un réalisateur français, elle s'envole pour Paris le 24 décembre 1954.</center>");
+let planeIcon = L.icon({iconUrl: obj_array[1][5], iconSize: [obj_array[1][6], obj_array[1][7]]});
+L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon}).addTo(map).bindPopup(obj_array[1][9]);
 
-let appartIcon = L.icon({iconUrl: '../images/appartement.png', iconSize: [100, 100]});
-L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon}).addTo(map).bindPopup("<center>Installation dans un appartement proche des Champs Élysées où elle fait la rencontre d'Alain Delon, son voisin de palier.</center>");
+let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
+L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon}).addTo(map).bindPopup(obj_array[2][9]);
 
-let alainIcon = L.icon({iconUrl: '../images/alain_delon.jpg', iconSize: [349, 440]});
-
-let olympiaIcon = L.icon({iconUrl: '../images/olympia_paris.jpg', iconSize: [349, 440]});
+let olympiaIcon = L.icon({iconUrl: obj_array[3][5], iconSize: [obj_array[3][6], obj_array[3][7]]});
 L.marker([obj_array[3][3],obj_array[3][2]], {icon: olympiaIcon}).addTo(map);
 
-let montmartreIcon = L.icon({iconUrl: '../images/charles_aznavour.png', iconSize: [220, 440]});
+let montmartreIcon = L.icon({iconUrl: obj_array[4][5], iconSize: [obj_array[4][6], obj_array[4][7]]});
 L.marker([obj_array[4][3],obj_array[4][2]], {icon: montmartreIcon}).addTo(map);
 
-let sanremoIcon = L.icon({iconUrl: '../images/micro.png', iconSize: [100, 100]});
+let sanremoIcon = L.icon({iconUrl: obj_array[5][5], iconSize: [obj_array[5][6], obj_array[5][7]]});
 L.marker([obj_array[5][3],obj_array[5][2]],{icon: sanremoIcon}).addTo(map);
 
-let PDSIcon =  L.icon({iconUrl: '../images/palais_des_sports.jpg', iconSize: [349, 440]});
+let PDSIcon =  L.icon({iconUrl: obj_array[6][5], iconSize: [obj_array[6][6], obj_array[6][7]]});
 L.marker([obj_array[6][3],obj_array[6][2]],{icon: PDSIcon}).addTo(map);
+
+let alainIcon = L.icon({iconUrl: obj_array[7][5], iconSize: [obj_array[7][6], obj_array[7][7]]});
 
 function addItem(item){ 
     item.usable = true;
