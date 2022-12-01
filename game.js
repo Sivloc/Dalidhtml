@@ -65,6 +65,8 @@ L.marker([obj_array[6][3],obj_array[6][2]],{icon: PDSIcon}).addTo(map);
 
 let alainIcon = L.icon({iconUrl: obj_array[7][5], iconSize: [obj_array[7][6], obj_array[7][7]]});
 
+letdalidisqueIcon = L.icon({iconUrl: obj_array[5][5], iconSize: [obj_array[5][6], obj_array[5][7]]});
+
 function addItem(item){ 
     item.usable = true;
     console.log("add")
