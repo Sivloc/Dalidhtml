@@ -22,7 +22,7 @@ class item {
 
 function slot_fill(n,item){
     str = item.img;
-    n.innerHTML = "<img src='"+str+"'></img>";
+    n.innerHTML = "<img src="+str+"></img>";
     console.log("fill");
     console.log("<img src="+str+"></img>")
 }
@@ -39,11 +39,14 @@ let dalidaIcon = new L.icon({iconUrl: obj_array[0][5], iconSize: [obj_array[0][6
 L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindPopup(obj_array[0][9]);
 
 
-
-// unBindPopup
+var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>"
 
 let planeIcon = L.icon({iconUrl: obj_array[1][5], iconSize: [obj_array[1][6], obj_array[1][7]]});
-L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon}).addTo(map).bindPopup(obj_array[1][9]);
+L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon}).addTo(map).bindPopup(obj_array[1][9] + boutonVoler);
+
+function setMapOnParis(){
+    map.setView([48.856, 2.341], 13);
+}
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
 L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon}).addTo(map).bindPopup(obj_array[2][9]);
