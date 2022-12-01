@@ -32,9 +32,7 @@ function slot_remove(n){
 }
 
 
-
-
-/*MARKERS DU JEU*/
+// MARKERS DU JEU
 let dalidaIcon = new L.icon({iconUrl: obj_array[0][5], iconSize: [obj_array[0][6], obj_array[0][7]], popupAnchor: [0, -50]});
 L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindPopup(obj_array[0][9]);
 
@@ -66,6 +64,26 @@ let PDSIcon =  L.icon({iconUrl: obj_array[6][5], iconSize: [obj_array[6][6], obj
 L.marker([obj_array[6][3],obj_array[6][2]],{icon: PDSIcon}).addTo(map);
 
 let alainIcon = L.icon({iconUrl: obj_array[7][5], iconSize: [obj_array[7][6], obj_array[7][7]]});
+
+// GESTION DU ZOOM
+
+if(obj_array[2][10] == true){
+    zoom(obj_array[0][0], )
+    }
+    
+function zoom(minZoom, marker){
+    // Affichage de l'objet
+    if(map.getZoom() >= array){
+        marker.addTo(map);
+    }
+    else{
+        marker.remove();
+    }
+
+}
+
+
+
 
 let dalidisqueIcon = L.icon({iconUrl: obj_array[8][5], iconSize: [obj_array[8][6], obj_array[8][7]]});
 L.marker([obj_array[8][3],obj_array[8][2]], {icon: dalidisqueIcon}).addTo(map);
