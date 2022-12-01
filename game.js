@@ -56,7 +56,7 @@ function openJournal(){
 }
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
-L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon}).addTo(map).bindPopup(obj_array[2][9]);
+//L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon}).addTo(map).bindPopup(obj_array[2][9]);
 
 let olympiaIcon = L.icon({iconUrl: obj_array[3][5], iconSize: [obj_array[3][6], obj_array[3][7]]});
 L.marker([obj_array[3][3],obj_array[3][2]], {icon: olympiaIcon}).addTo(map);
@@ -74,19 +74,31 @@ let alainIcon = L.icon({iconUrl: obj_array[7][5], iconSize: [obj_array[7][6], ob
 
 // GESTION DU ZOOM
 
-if(obj_array[2][10] == true){
-    zoom(obj_array[0][0], )
-    }
-    
-function zoom(minZoom, marker){
-    // Affichage de l'objet
-    if(map.getZoom() >= array){
-        marker.addTo(map);
-    }
-    else{
-        marker.remove();
-    }
+// Affichage = 1 = True
 
+
+
+map.addEventListener('zoom', function(){
+    if(obj_array[2][10] == 1){
+        marker = L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon});
+        zoom(marker, obj_array[2][8], obj_array[2][9]);
+    }
+});
+
+// Fonction qui affiche le marker selon un certain niveau de zoom
+function zoom(marker, minZoom, popup){
+    console.log("minZoom = " + minZoom);
+    console.log("Zoom actuel = " + map.getZoom());
+    var okay = 1;
+
+    if(map.getZoom() >= minZoom){
+        marker.addTo(map).bindPopup(popup);
+        console.log("Hibou");
+    }
+    else if(map.getZoom() < minZoom){
+        marker.remove();
+        console.log("Chouette");
+    }
 }
 
 
