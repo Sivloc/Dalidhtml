@@ -74,9 +74,14 @@ INSERT INTO `object` (`id`, `name`, `latitude`, `longitude`, `ordre`, `iconUrl`,
 (6, 'Sanremo', 43.816546, 7.77597, 6, '../images/micro.png', 100, 100, 13, NULL, 1),
 (7, 'Palais des sports', 48.832714, 2.287051, 7, '../images/palais_des_sports.jpg', 128, 81, 17, NULL, 1),
 (8, 'Alain Delon', NULL, NULL, NULL, '../images/alain_delon.jpg', 87, 110, NULL, NULL, 1),
-(9, 'Disque Dalida', 48.870420405447696, 2.330827952385263, NULL, '../images/disque_dalida.png', 87, 110, NULL, NULL, 1),
-(10,'Journal', 48.85164452061731, 2.3502190758508585, NULL, '../images/newspaper.png', 87, 110, 17, NULL, 1),
-(11,'Coupure', NULL, NULL, NULL, '../images/coupure.jpg', 87, 110, NULL, NULL, 1);
+(9, 'Disque Dalida', 48.870420, 2.330827, NULL, '../images/disque_dalida.png', 87, 110, NULL, NULL, 1),
+(10,'Journal', 48.851644, 2.350219, NULL, '../images/newspaper.png', 87, 110, 17, NULL, 1),
+(11,'Coupure', NULL, NULL, NULL, '../images/coupure.jpg', 87, 110, NULL, NULL, 1),
+(12,'Boule Disco',NULL NULL NULL, '../images/boule_disco.jpg',100,100,NULL,NULL,1),
+(13'Mogador',48.875389, 2.331026, NULL, '../images/mogador.jpg', 200,100,NULL,NULL,1),
+(14,'Maison Dalida',48.886999, 2.336988, NULL, '../images/house.png', 72,96,NULL,NULL,1),
+(15,'Tourne-Disque',48.869861, 2.327614,NULL,'../images/tourne_disque.jpg',50,25,NULL,NULL,1),
+(16,'Partition',NULL,NULL,NULL,'../images/partoche.jpg',25,50,NULL,NULL,1);
 COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
