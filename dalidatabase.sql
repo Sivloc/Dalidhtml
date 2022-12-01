@@ -73,11 +73,10 @@ INSERT INTO `object` (`id`, `name`, `latitude`, `longitude`, `ordre`, `iconUrl`,
 (6, 'Sanremo', 43.816546, 7.77597, 6, '../images/micro.png', 100, 100, NULL, NULL),
 (7, 'Palais des sports', 48.832714, 2.287051, 7, '../images/palais_des_sports.jpg', 128, 81, NULL, NULL),
 (8, 'Alain Delon', NULL, NULL, NULL, '../images/alain_delon.jpg', 87, 110, NULL, NULL),
-(9, 'Disque Dalida', NULL, NULL, NULL, '../images/disque_dalida.png', 87, 110, NULL, NULL),
-(10,'Journal', NULL, NULL, NULL, '../images/newspaper.png', 87, 110, NULL, NULL),
-(10,'Coupure', 48.5, 2.5, NULL, '../images/coupure.jpg', 87, 110, NULL, NULL);
+(9, 'Disque Dalida', 48.870420405447696, 2.330827952385263, NULL, '../images/disque_dalida.png', 87, 110, NULL, NULL),
+(10,'Journal', 48.85164452061731, 2.3502190758508585, NULL, '../images/newspaper.png', 87, 110, NULL, NULL),
+(11,'Coupure', NULL, NULL, NULL, '../images/coupure.jpg', 87, 110, NULL, NULL);
 COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -40,12 +40,21 @@ L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindP
 
 
 var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>"
+var boutonRecupJournal = "<center><input type='submit' onclick = openJournal() id='news' value='Lire'></center>"
+
 
 let planeIcon = L.icon({iconUrl: obj_array[1][5], iconSize: [obj_array[1][6], obj_array[1][7]]});
 L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon}).addTo(map).bindPopup(obj_array[1][9] + boutonVoler);
 
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
+}
+
+function openJournal(){
+    w2popup.open({
+        title: 'Image',
+        body: '<div class="w2ui-centered"><img src='+obj_array[10][5]+'></img></div>'
+      });
 }
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
@@ -65,7 +74,11 @@ L.marker([obj_array[6][3],obj_array[6][2]],{icon: PDSIcon}).addTo(map);
 
 let alainIcon = L.icon({iconUrl: obj_array[7][5], iconSize: [obj_array[7][6], obj_array[7][7]]});
 
-letdalidisqueIcon = L.icon({iconUrl: obj_array[5][5], iconSize: [obj_array[5][6], obj_array[5][7]]});
+let dalidisqueIcon = L.icon({iconUrl: obj_array[8][5], iconSize: [obj_array[8][6], obj_array[8][7]]});
+L.marker([obj_array[8][3],obj_array[8][2]], {icon: dalidisqueIcon}).addTo(map);
+
+let journalIcon = L.icon({iconUrl: obj_array[9][5], iconSize: [obj_array[9][6], obj_array[9][7]]});
+L.marker([obj_array[9][3],obj_array[9][2]], {icon: journalIcon}).addTo(map).bindPopup(boutonRecupJournal);
 
 function addItem(item){ 
     item.usable = true;
