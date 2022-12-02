@@ -99,7 +99,7 @@ tournedisqueMarker = L.marker([obj_array[14][3],obj_array[14][2]], {icon: tourne
 
 
 
-map.addEventListener('zoom', function(){
+map.on('zoom', function(){
     if(obj_array[2][10] == 1){
         marker = L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon});
         zoom(marker, obj_array[2][8], obj_array[2][9]);
