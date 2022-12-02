@@ -39,7 +39,7 @@ L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindP
 
 var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
 var boutonRecupJournal = L.popup({minWidth : 375,content: '<center><img src="'+obj_array[10][5]+'"></center>'});
-var boutonMaison = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
+var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='fly' value='Y aller'></center>";
 
 // Les booléens pour gérer la progression du jeu
 
