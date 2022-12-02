@@ -279,6 +279,6 @@ function end() {
     var timeDiff = endTime - startTime; //en ms
     timeDiff /= 1000;
     console.log(timeDiff);
-    localStorage.setItem(timeDiff);
+    localStorage.setItem('score',timeDiff);
 }
 
