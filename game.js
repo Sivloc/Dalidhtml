@@ -139,6 +139,10 @@ map.on('zoom', function(){
 // Niveau de zoom Mogador
 map.on('zoom', function(){
     zoom(mogadorMarker, obj_array[12][8], obj_array[12][9]);
+});
+// Niveau de zoom maison Dalida
+map.on('zoom', function(){
+    zoom(MaisonMarker, obj_array[13][8], obj_array[13][9]);
 });/*
 // Niveau de zoom tourne disque
 map.on('zoom', function(){
@@ -148,7 +152,6 @@ map.on('zoom', function(){
 map.on('zoom', function(){
     zoom(partocheMarker, obj_array[15][8], obj_array[15][9]);
 });
-
 
 
 // Fonction qui affiche le marker selon un certain niveau de zoom
@@ -198,7 +201,6 @@ function addDelon(){
     if(alain_in_inventaire == false){
         alain_in_inventaire = true;
         slot1.innerHTML = ("<center><img src='"+obj_array[7][5]+"', width = 80, height = 80 ><center>");
-        alert("Allez à l'Olympia pour débuter la carrière de Dalida")
     }
 }
 function disque(){
@@ -213,7 +215,7 @@ function disque(){
 }
 
 function boheme(){
-    let texte = prompt("Quel fameux chanteur apprécie Montmartre et ses lilas accrochés aux fenêtres?");
+    let texte = prompt("<center>Quel fameux chanteur apprécie Montmartre et ses lilas accrochés aux fenêtres?</center>");
     if(texte == 'Aznavour' || texte == 'aznavour'){
         montmartreMarker.remove();
         disque_recuperable = true;
@@ -281,7 +283,7 @@ function paroles(){
 function sanremoconcert(){
     if(disque_in_inventaire == true){
         sanremodone = true;
-        sanremoMicro.bindPopup("Le 26 janvier 1967, Dalida participe au festival de chanson de Sanremo avec Luigi Tenco, le nouvel homme de sa vie qu'elle a convaincu de participer à la compétition.");
+        sanremoMicro.bindPopup(obj_array[5][9]);
     }
     else{
         sanremoMicro.bindPopup("Rien à signaler ici");
@@ -291,17 +293,17 @@ function sanremoconcert(){
 function PDSconcert(){
     if(boule_disco_in_inventaire == true){
         MaisonMarker.addTo(map);
-        PDSmarker.bindPopup("Après cette période, Dalida commence à se fatiguer et elle se produit une dernière fois en Turquie.                     Elle a ce soir rendez-vous avec François Naudy au Mogador, au sud-est de la gare de Saint-Lazare. Elle se prépare chez elle. " + boutonMaison);
+        PDSmarker.bindPopup(obj_array[6][9] + boutonMaison);
         PDSdone = true;
     }
     else{
-        PDSmarker.bindPopup("Le Dôme de Paris - Palais des Sports est une salle de spectacles de grandes dimensions située place de la Porte-de-Versailles dans le 15e arrondissement de Paris. Elle peut accueillir jusqu'à plus de cinq mille spectateurs.")
+        PDSmarker.bindPopup("<center>Le Dôme de Paris - Palais des Sports est une salle de spectacles de grandes dimensions située place de la Porte-de-Versailles dans le 15e arrondissement de Paris. Elle peut accueillir jusqu'à plus de cinq mille spectateurs.</center>")
     }
 }
 
 function mogadorFin(){
     if(PDSdone == true){
-        mogadorMarker.bindPopup("Dalida devrait être ici pourtant, où peut-elle bien être ?");
+        mogadorMarker.bindPopup(obj_array[12][9]);
         mogadorDone = true;
     }
     else{
@@ -310,7 +312,7 @@ function mogadorFin(){
 
 function FinDuJeu(){
     if(mogadorDone == true){
-        MaisonMarker.bindPopup("En réalite, dans la nuit du 2 au 3 mai 1987, restée seule dans sa maison du 11 bis rue d'Orchampt, elle se suicide par surdose de barbituriques, qu’elle avale avec du whisky");
+        MaisonMarker.bindPopup(obj_array[13][9]);
         end()
     }
     else{
