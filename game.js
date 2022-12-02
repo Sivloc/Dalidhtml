@@ -39,6 +39,7 @@ L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindP
 
 var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
 var boutonRecupJournal = L.popup({minWidth : 375,content: '<center><img src="'+obj_array[10][5]+'"></center>'});
+var boutonMaison = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
 
 // Les booléens pour gérer la progression du jeu
 
@@ -60,6 +61,9 @@ L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon}).addTo(map).bindP
 
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
+}
+function setMapOnMaison(){
+    map.setView([obj_array[13][2],obj_array[13][3]],)
 }
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
@@ -149,11 +153,12 @@ function addDelon(){
     if(alain_in_inventaire == false){
         alain_in_inventaire = true;
         slot1.innerHTML = ("<center><img src='"+obj_array[7][5]+"', width = 80, height = 80 ><center>");
+        alert("Allez à l'Olympia pour débuter la carrière de Dalida")
     }
 }
 function disque(){
     if(lucien_morisse == false){
-        disquecode.addTo(map).bindPopup("Elle enregistre son premier 45 tours, elle va ensuite faire les premières parties d'un artiste que vous trouverez à Montmartre, allez le voir pour récupérer le disque");
+        disquecode.addTo(map).bindPopup("Elle enregistre son premier <b>45</b> tours, elle va ensuite faire les premières parties d'un artiste que vous trouverez à Montmartre, allez le voir pour récupérer le disque");
         lucien_morisse = true;
     }
 }
@@ -181,14 +186,16 @@ function recupdisque(){
 
 
 function enigme(){
-    let code = prompt("What's your sign?");
+    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso, <br> Les deux derniers sont un nombre associés aux musicales de l'époque");
     console.log(code);
-    if (code=='1234'){
-        alert('BRAVO TU AS GAGNÉ')
+    if (code=='1245'){
+        alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports')
         code_resolu = true;
+        boule_disco_in_inventaire = true;
+        slot2.innerHTML = "<center><img src='"+obj_array[11][5]+"', width = 80, height = 80 ><center>";
     }
     else{
-        alert("TU PUES LA MERDE")
+        alert("Ce n'est pas le bon code : il y a un indice dans ton inventaire")
     }
 }
 
@@ -230,7 +237,8 @@ function sanremoconcert(){
 
 function PDSconcert(){
     if(boule_disco_in_inventaire == true){
-
+        PDSmarker.bindPopup("Après cette période, Dalida commence à se fatiguer et elle se produit une dernière fois en Turquie. <br> Elle a ce soir rendez-vous avec François Naudy au Mogador, au sud-est de la gare de Saint-Lazare. Elle se prépare chez elle. " + boutonMaison);
+        PDSdone = true;
     }
     else{
         PDSmarker.bindPopup("Le Dôme de Paris - Palais des Sports est une salle de spectacles de grandes dimensions située place de la Porte-de-Versailles dans le 15e arrondissement de Paris. Elle peut accueillir jusqu'à plus de cinq mille spectateurs.")
