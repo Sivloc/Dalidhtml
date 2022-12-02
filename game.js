@@ -91,28 +91,20 @@ mogadorMarker = L.marker([obj_array[12][3],obj_array[12][2]], {icon: mogadorIcon
 
 // Affichage = 1 = True
 
-
+marker = L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon});
 
 map.on('zoom', function(){
-    if(obj_array[2][10] == 1){
-        marker = L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon});
         zoom(marker, obj_array[2][8], obj_array[2][9]);
-    }
 });
 
 // Fonction qui affiche le marker selon un certain niveau de zoom
 function zoom(marker, minZoom, popup){
-    console.log("minZoom = " + minZoom);
-    console.log("Zoom actuel = " + map.getZoom());
-    var okay = 1;
 
     if(map.getZoom() >= minZoom){
         marker.addTo(map).bindPopup(popup);
-        console.log("Hibou");
     }
-    else if(map.getZoom() < minZoom){
+    if(map.getZoom() < minZoom){
         marker.remove();
-        console.log("Chouette");
     }
 }
 
@@ -170,7 +162,7 @@ function enigme(){
 function paroles(){
     if(sanremodone == true){
         let texte = prompt("N'oubliez pas les paroles: <br>Caramels, Bonbons et ________ ")
-        if(texte == 'chocolat' || texte == 'chocolats' || texte == 'Chocolat' || texte == 'Chocolat'){
+        if(texte == 'chocolat' || texte == 'chocolats' || texte == 'Chocolat' || texte == 'Chocolats'){
             alert("MERCI PAS POUR MOI,MAIS TU PEUX BIEN LES OFFRIR à UNE AUTRE")
         }
         else{
