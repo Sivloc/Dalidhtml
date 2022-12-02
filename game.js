@@ -205,7 +205,7 @@ function disque(){
     if(lucien_morisse == false){
         // Niveau de zoom Disque Dalida
         map.on('zoom', function(){
-   <b></b>         zoom(disquecode, obj_array[8][8], obj_array[8][9]);
+            zoom(disquecode, obj_array[8][8], obj_array[8][9]);
         });
         //disquecode.addTo(map).bindPopup(obj_array[8][9]);
         lucien_morisse = true;
