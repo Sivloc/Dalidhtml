@@ -1,4 +1,9 @@
 let map = L.map('map').setView([30.050, 31.235], 13);
+window.onload = start();
+
+function start(){
+    startTime = new Date();
+}
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
@@ -63,7 +68,7 @@ function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
 }
 function setMapOnMaison(){
-    map.setView([obj_array[13][2],obj_array[13][3]],)
+    map.setView([obj_array[13][3],obj_array[13][2]],)
 }
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
@@ -97,6 +102,9 @@ partocheMarker = L.marker([obj_array[15][3],obj_array[15][2]], {icon: mogadorIco
 
 let tournedisqueIcon = L.icon({iconUrl: obj_array[14][5], iconSize: [obj_array[14][6], obj_array[14][7]]});
 tournedisqueMarker = L.marker([obj_array[14][3],obj_array[14][2]], {icon: tournedisqueIcon});
+
+let MaisonIcon = L.icon({iconUrl: obj_array[13][5], iconSize: [obj_array[13][6], obj_array[13][7]]});
+MaisonMarker = L.marker([obj_array[13][3],obj_array[13][2]], {icon: MaisonIcon});
 // GESTION DU ZOOM
 
 // Affichage = 1 = True
@@ -147,7 +155,8 @@ olympialain.addEventListener('click',paroles);
 sanremomicro.addEventListener('click',sanremoconcert);
 PDSmarker.addEventListener('click',PDSconcert);
 mogadorMarker.addEventListener('click',mogadorFin);
-appartMarker.addEventListener('click',addDelon)
+appartMarker.addEventListener('click',addDelon);
+MaisonMarker.addEventListener('click',FinDuJeu)
 
 function addDelon(){
     if(alain_in_inventaire == false){
@@ -186,7 +195,7 @@ function recupdisque(){
 
 
 function enigme(){
-    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso, <br> Les deux derniers sont un nombre associés aux musicales de l'époque");
+    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso,                 Les deux derniers sont un nombre associés aux musicales de l'époque");
     console.log(code);
     if (code=='1245'){
         alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports')
@@ -201,14 +210,14 @@ function enigme(){
 
 function paroles(){
     if(sanremodone == true & parolesdone == false & alain_in_inventaire == true){
-        let texte = prompt("N'oubliez pas les paroles: <br>Caramels, Bonbons et ________ ");
+        let texte = prompt("N'oubliez pas les paroles:                  Caramels, Bonbons et ________ ");
         if(texte == 'chocolat' || texte == 'chocolats' || texte == 'Chocolat' || texte == 'Chocolats'){
             alert("MERCI PAS POUR MOI,MAIS TU PEUX BIEN LES OFFRIR À UNE AUTRE");
             tournedisqueMarker.addTo(map);
             parolesdone = true;
         }
         else{
-         alert("Dommage, écoute la musique et réessaye <br> Indice : Ca se mange")
+         alert("Dommage, écoute la musique et réessaye.                  Indice : Ca se mange")
         }
     }
     else if(disque_in_inventaire == true){
@@ -237,7 +246,8 @@ function sanremoconcert(){
 
 function PDSconcert(){
     if(boule_disco_in_inventaire == true){
-        PDSmarker.bindPopup("Après cette période, Dalida commence à se fatiguer et elle se produit une dernière fois en Turquie. <br> Elle a ce soir rendez-vous avec François Naudy au Mogador, au sud-est de la gare de Saint-Lazare. Elle se prépare chez elle. " + boutonMaison);
+        MaisonMarker.addTo(map);
+        PDSmarker.bindPopup("Après cette période, Dalida commence à se fatiguer et elle se produit une dernière fois en Turquie.                     Elle a ce soir rendez-vous avec François Naudy au Mogador, au sud-est de la gare de Saint-Lazare. Elle se prépare chez elle. " + boutonMaison);
         PDSdone = true;
     }
     else{
@@ -247,7 +257,8 @@ function PDSconcert(){
 
 function mogadorFin(){
     if(PDSdone == true){
-        mogadorMarker.bindPopup("Dalida devrait être ici pourtant, où peut-elle bien être ?")
+        mogadorMarker.bindPopup("Dalida devrait être ici pourtant, où peut-elle bien être ?");
+        mogadorDone = true;
     }
     else{
     }
@@ -255,8 +266,19 @@ function mogadorFin(){
 
 function FinDuJeu(){
     if(mogadorDone == true){
-        DalidaMaison.bindPopup("En réalite, dans la nuit du 2 au 3 mai 1987, restée seule dans sa maison du 11 bis rue d'Orchampt, elle se suicide par surdose de barbituriques, qu’elle avale avec du whisky");
+        MaisonMarker.bindPopup("En réalite, dans la nuit du 2 au 3 mai 1987, restée seule dans sa maison du 11 bis rue d'Orchampt, elle se suicide par surdose de barbituriques, qu’elle avale avec du whisky");
+        end()
     }
     else{
+        MaisonMarker.bindPopup("Maison de Dalida au 11 bis rue d'Orchampt");
     }
 }
+
+function end() {
+    endTime = new Date();
+    var timeDiff = endTime - startTime; //en ms
+    timeDiff /= 1000;
+    console.log(timeDiff);
+    localStorage.setItem(timeDiff);
+}
+
