@@ -1,7 +1,7 @@
 let map = L.map('map').setView([30.050, 31.235], 13);
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
+    maxZoom: 19,
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
@@ -63,19 +63,19 @@ function setMapOnParis(){
 }
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
-appartMarker = L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon}).addTo(map).bindPopup(obj_array[2][9]);
+appartMarker = L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon});
 
 let olympiaIcon = L.icon({iconUrl: obj_array[3][5], iconSize: [obj_array[3][6], obj_array[3][7]]});
-olympialain = L.marker([obj_array[3][3],obj_array[3][2]], {icon: olympiaIcon}).addTo(map).bindPopup("Elle rencontre Lucien Morisse (directeur artistique d'Europe 1) et Eddie Barclay (éditeur de disques) à l'Olympia,salle de spectacle et de musique dans Paris, Lucien Morisse prend sa carrière en main");
+olympiaMarker = L.marker([obj_array[3][3],obj_array[3][2]], {icon: olympiaIcon});
 
 let montmartreIcon = L.icon({iconUrl: obj_array[4][5], iconSize: [obj_array[4][6], obj_array[4][7]]});
-montmartreMarker = L.marker([obj_array[4][3],obj_array[4][2]], {icon: montmartreIcon}).addTo(map);
+montmartreMarker = L.marker([obj_array[4][3],obj_array[4][2]], {icon: montmartreIcon});
 
 let sanremoIcon = L.icon({iconUrl: obj_array[5][5], iconSize: [obj_array[5][6], obj_array[5][7]]});
-sanremomicro = L.marker([obj_array[5][3],obj_array[5][2]],{icon: sanremoIcon}).addTo(map);
+sanremoMicro = L.marker([obj_array[5][3],obj_array[5][2]],{icon: sanremoIcon});
 
 let PDSIcon =  L.icon({iconUrl: obj_array[6][5], iconSize: [obj_array[6][6], obj_array[6][7]]});
-PDSmarker = L.marker([obj_array[6][3],obj_array[6][2]],{icon: PDSIcon}).addTo(map);
+PDSmarker = L.marker([obj_array[6][3],obj_array[6][2]],{icon: PDSIcon});
 
 let alainIcon = L.icon({iconUrl: obj_array[7][5], iconSize: [obj_array[7][6], obj_array[7][7]]});
 
@@ -83,25 +83,61 @@ let dalidisqueIcon = L.icon({iconUrl: obj_array[8][5], iconSize: [obj_array[8][6
 disquecode = L.marker([obj_array[8][3],obj_array[8][2]], {icon: dalidisqueIcon});
 
 let journalIcon = L.icon({iconUrl: obj_array[9][5], iconSize: [obj_array[9][6], obj_array[9][7]]});
-L.marker([obj_array[9][3],obj_array[9][2]], {icon: journalIcon}).addTo(map).bindPopup(boutonRecupJournal);
+journalMarker = L.marker([obj_array[9][3],obj_array[9][2]], {icon: journalIcon});
 
 let mogadorIcon = L.icon({iconUrl: obj_array[12][5], iconSize: [obj_array[12][6], obj_array[12][7]]});
-mogadorMarker = L.marker([obj_array[12][3],obj_array[12][2]], {icon: mogadorIcon}).addTo(map);
+mogadorMarker = L.marker([obj_array[12][3],obj_array[12][2]], {icon: mogadorIcon});
 
 let partocheIcon = L.icon({iconUrl: obj_array[15][5], iconSize: [obj_array[15][6], obj_array[15][7]]});
-partocheMarker = L.marker([obj_array[15][3],obj_array[15][2]], {icon: mogadorIcon});
+partocheMarker = L.marker([obj_array[15][3],obj_array[15][2]], {icon: partocheIcon});
 
 let tournedisqueIcon = L.icon({iconUrl: obj_array[14][5], iconSize: [obj_array[14][6], obj_array[14][7]]});
 tournedisqueMarker = L.marker([obj_array[14][3],obj_array[14][2]], {icon: tournedisqueIcon});
-// GESTION DU ZOOM
 
-// Affichage = 1 = True
 
-marker = L.marker([obj_array[2][3], obj_array[2][2]], {icon: appartIcon});
+// GESTION DU ZOOM //
 
+// Niveau de zoom appartement
 map.on('zoom', function(){
-        zoom(marker, obj_array[2][8], obj_array[2][9]);
+    zoom(appartMarker, obj_array[2][8], obj_array[2][9]);
 });
+// Niveau de zoom Olympia
+map.on('zoom', function(){
+    zoom(olympiaMarker, obj_array[3][8], obj_array[3][9]);
+});
+// Niveau de zoom Montmartre
+map.on('zoom', function(){
+    zoom(montmartreMarker, obj_array[4][8], obj_array[4][9]);
+});
+// Niveau de zoom micro à Sanremo
+map.on('zoom', function(){
+    zoom(sanremoMicro, obj_array[5][8], obj_array[5][9]);
+});
+// Niveau de zoom Palais des Sports
+map.on('zoom', function(){
+    zoom(PDSmarker, obj_array[6][8], obj_array[6][9]);
+});/*
+map.on('zoom', function(){
+    zoom(disquecode, obj_array[8][8], obj_array[8][9]);
+});*/
+// Niveau de zoom journal
+map.on('zoom', function(){
+    zoom(journalMarker, obj_array[9][8], boutonRecupJournal);
+});
+// Niveau de zoom Mogador
+map.on('zoom', function(){
+    zoom(mogadorMarker, obj_array[12][8], obj_array[12][9]);
+});/*
+// Niveau de zoom tourne disque
+map.on('zoom', function(){
+    zoom(tournedisqueMarker, obj_array[14][8], obj_array[14][9]);
+});*/
+// Niveau de zoom partition
+map.on('zoom', function(){
+    zoom(partocheMarker, obj_array[15][8], obj_array[15][9]);
+});
+
+
 
 // Fonction qui affiche le marker selon un certain niveau de zoom
 function zoom(marker, minZoom, popup){
@@ -138,9 +174,9 @@ function addItem(item){
 montmartreMarker.addEventListener('click',boheme);
 tournedisqueMarker.addEventListener('click',enigme);
 disquecode.addEventListener('click',recupdisque);
-olympialain.addEventListener('click',disque);
-olympialain.addEventListener('click',paroles);
-sanremomicro.addEventListener('click',sanremoconcert);
+olympiaMarker.addEventListener('click',disque);
+olympiaMarker.addEventListener('click',paroles);
+sanremoMicro.addEventListener('click',sanremoconcert);
 PDSmarker.addEventListener('click',PDSconcert);
 mogadorMarker.addEventListener('click',mogadorFin);
 appartMarker.addEventListener('click',addDelon)
@@ -153,7 +189,11 @@ function addDelon(){
 }
 function disque(){
     if(lucien_morisse == false){
-        disquecode.addTo(map).bindPopup("Elle enregistre son premier 45 tours, elle va ensuite faire les premières parties d'un artiste que vous trouverez à Montmartre, allez le voir pour récupérer le disque");
+        // Niveau de zoom Disque Dalida
+        map.on('zoom', function(){
+            zoom(disquecode, obj_array[8][8], obj_array[8][9]);
+        });
+        //disquecode.addTo(map).bindPopup(obj_array[8][9]);
         lucien_morisse = true;
     }
 }
@@ -197,7 +237,11 @@ function paroles(){
         let texte = prompt("N'oubliez pas les paroles: <br>Caramels, Bonbons et ________ ");
         if(texte == 'chocolat' || texte == 'chocolats' || texte == 'Chocolat' || texte == 'Chocolats'){
             alert("MERCI PAS POUR MOI,MAIS TU PEUX BIEN LES OFFRIR À UNE AUTRE");
-            tournedisqueMarker.addTo(map);
+            // Niveau de zoom tourne disque
+            map.on('zoom', function(){
+                zoom(tournedisqueMarker, obj_array[14][8], obj_array[14][9]);
+            });
+            //tournedisqueMarker.addTo(map);
             parolesdone = true;
         }
         else{
@@ -207,13 +251,13 @@ function paroles(){
     else if(disque_in_inventaire == true){
         let rand = Math.floor(Math.random() * 3) + 1;
         if(rand==1){
-            olympialain.bindPopup("Cloclo ce soir: Le téléphone pleure");
+            olympiaMarker.bindPopup("Cloclo ce soir: Le téléphone pleure");
         }
         if(rand==2){
-            olympialain.bindPopup("Jacques Dutronc en concert : Cette vieille branche");
+            olympiaMarker.bindPopup("Jacques Dutronc en concert : Cette vieille branche");
         }
         if(rand==3){
-            olympialain.bindPopup("Koba la D : Un CoNcErT dAnS lE bAt 7");
+            olympiaMarker.bindPopup("Koba la D : Un CoNcErT dAnS lE bAt 7");
         }
     }
 }
@@ -221,10 +265,10 @@ function paroles(){
 function sanremoconcert(){
     if(disque_in_inventaire == true){
         sanremodone = true;
-        sanremomicro.bindPopup("Le 26 janvier 1967, Dalida participe au festival de chanson de Sanremo avec Luigi Tenco, le nouvel homme de sa vie qu'elle a convaincu de participer à la compétition.");
+        sanremoMicro.bindPopup("Le 26 janvier 1967, Dalida participe au festival de chanson de Sanremo avec Luigi Tenco, le nouvel homme de sa vie qu'elle a convaincu de participer à la compétition.");
     }
     else{
-        sanremomicro.bindPopup("Rien à signaler ici");
+        sanremoMicro.bindPopup("Rien à signaler ici");
     }
 }
 
