@@ -23,7 +23,7 @@
     background-color: goldenrod;
     grid-column: 8 / 9;
     grid-row : 1 / 2;
-
+    width: 170px;
     display: grid;
 }
 
