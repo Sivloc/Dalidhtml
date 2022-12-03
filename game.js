@@ -218,7 +218,7 @@ function disque(){
 
  function boheme(){
     if(lucien_morisse == true){
-        let texte = prompt("Quel fameux chanteur apprécie Montmartre et ses lilas accrochés aux fenêtres?");
+        let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître?");
         if(texte == 'Aznavour' || texte == 'aznavour'){
             montmartreMarker.remove();
             disque_recuperable = true;
