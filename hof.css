@@ -5,6 +5,11 @@
     padding: 6px 18px;
     border-radius: 5px;
 }
+#colonne{
+    display: grid;
+    grid-template-columns: 10% 50% 40%;
+    align-items: center;
+}
 #eg{
     text-align: center;
     color:black;
@@ -55,11 +60,11 @@ body{
 }
 
 #titre {
-    color: goldenrod;
     grid-row: 1/2;
     text-align: center;
-    font-family: 'Acme', sans-serif;
-    font-size: larger;
+    color: goldenrod;
+    font-family: 'Alex Brush', handwriting;
+    font-size: 1cm;
 }
 
 #liste {
@@ -67,25 +72,72 @@ body{
     grid-template-rows: auto auto auto auto auto auto auto auto;
     width: 500px;
     height: 600px;
-    gap: 25px;
+    gap: 20px;
     grid-row: 1/2;
     margin-left: 514px;
     margin-right: 514px;
     margin-top: 100px;
+    align-items: center;
 }
 
+/* 1er */ 
 #top1 {
     color: gold;
-}
-#top2 {
-    color: silver;
-}
-#top3 {
-    color: rgb(201, 117, 16);
+    text-align: center;
 }
 #pseudo1 {
     margin-left: 150px;
+    text-align: center;
 }
 #score1 {
     margin-left: 100px;
+    text-align: center;
+}
+/* 2eme */ 
+#top2 {
+    color: silver;
+    text-align: center;
+}
+#pseudo2 {
+    margin-left: 150px;
+    text-align: center;
+}
+#score2 {
+    margin-left: 100px;
+    text-align: center;
+}
+/* 3eme */
+#top3 {
+    color: rgb(201, 117, 16);
+    text-align: center;
+}
+#pseudo3 {
+    margin-left: 150px;
+    text-align: center;
+}
+#score3 {
+    margin-left: 100px;
+    text-align: center;
+}
+
+#top {
+    text-align: center;
+}
+/* 4eme */
+#pseudo5 {
+    margin-left: 150px;
+    text-align: center;
+}
+#score5 {
+    margin-left: 100px;
+    text-align: center;
+}
+/* 5eme */
+#pseudo5 {
+    margin-left: 150px;
+    text-align: center;
+}
+#score5 {
+    margin-left: 100px;
+    text-align: center;
 }
