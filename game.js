@@ -46,7 +46,7 @@ dalidaMarker = L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).a
 
 var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
 var boutonRecupJournal = L.popup({minWidth : 375,content: '<center><img src="'+obj_array[10][5]+'"></center>'});
-var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='fly' value='Y aller'></center>";
+var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='fly' value='Aller se préparer'></center>";
 
 // Les booléens pour gérer la progression du jeu
 
@@ -252,7 +252,7 @@ function clickPourRecupDisco(){
 }
 
 function enigme(){
-    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso, Les deux derniers sont un nombre associés aux musicales de l'époque");
+    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso, cette information doit sûrement traîner dans les quais de Seine près de Notre-Dame. Les deux derniers sont le nom des vinyles de l'époque");
     console.log(code);
     if (code == '1245'){
         //alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports');
@@ -269,15 +269,15 @@ function enigme(){
 
 function paroles(){
     if(sanremodone == true & parolesdone == false & alain_in_inventaire == true){
-        let texte = prompt("N'oubliez pas les paroles:                  Caramels, Bonbons et ________ ");
+        let texte = prompt("N'oubliez pas les paroles:     Caramels, Bonbons et ________ ");
         if(texte == 'chocolat' || texte == 'chocolats' || texte == 'Chocolat' || texte == 'Chocolats'){
-            alert("MERCI PAS POUR MOI,MAIS TU PEUX BIEN LES OFFRIR À UNE AUTRE");
+            alert("Ce tube est un succès absolu !");
             // Niveau de zoom tourne disque
             zoom(tournedisqueMarker, obj_array[14][8], obj_array[14][9]);
             parolesdone = true;
         }
         else{
-         alert("Dommage, écoute la musique et réessaye.                  Indice : Ca se mange")
+         alert("Dommage, écoute la musique et réessaye. Indice : Ca se mange")
         }
     }
     else if(disque_in_inventaire == true){
