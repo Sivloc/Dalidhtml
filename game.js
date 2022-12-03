@@ -48,6 +48,7 @@ var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='
 
 // Les booléens pour gérer la progression du jeu
 
+let aznavour = false;
 let alain_in_inventaire = false;
 let lucien_morisse = false;
 let sanremodone = false;
@@ -197,16 +198,11 @@ appartMarker.addEventListener('click',addDelon);
 MaisonMarker.addEventListener('click',FinDuJeu);
 
 
-function suppAvion(){
-    if(lucien_morisse == true){
-        aeroportMarker.remove();
-    }
-}
-
 function addDelon(){
     if(alain_in_inventaire == false){
         alain_in_inventaire = true;
         slot1.innerHTML = ("<center><img src='" + obj_array[7][5] + "', width ='" + obj_array[7][6] + "', height = " + obj_array[7][7] + "><center>");
+        aeroportMarker.remove();
     }
 }
 function disque(){
@@ -228,25 +224,36 @@ function boheme(){
     }
 }
 
+var recupDisque = "<center><input type='submit' onclick = clickPourRecup() id='recupDisque' value='Récupérer'></center>";
+
+function clickPourRecup(){
+    slot2.innerHTML = ("<center><img src='" + obj_array[8][5] + "', width ='" + obj_array[8][6] + "', height = " + obj_array[8][7] + "></center>");
+    disquecode.remove();
+}
+
 function recupdisque(){
     if(disque_recuperable == true){
-        slot2.innerHTML = ("<center><img src='" + obj_array[8][5] + "', width ='" + obj_array[8][6] + "', height = " + obj_array[8][7] + "></center>");
+        disquecode.bindPopup("<center>Dalida sort ensuite <I>Itsi Bitsi Petit Bikini</I> et rencontre un succès à l'international, particulièrement en Italie. <br/><b>Rendez vous au festival de la chanson de Sanremo, une ville italienne pas loin de la France</b>.</center>" + recupDisque);
         disque_in_inventaire = true;
-        disque_recuperable = false;
-        alert("Dalida sort ensuite Itsi Bitsi Petit Bikini et rencontre un succès à l'international, particulièrement en Italie. Elle se rend donc à Sanremo au festival de la chanson")
-        disquecode.remove();
+        disque_recuperable = false;        
     }
 }
 
+var recupBouleDisco = "<center><input type='submit' onclick = clickPourRecupDisco() id='recupBouleDisco' value='Récupérer'></center>";
+
+function clickPourRecupDisco(){
+    slot2.innerHTML = "<center><img src='" + obj_array[11][5] + "', width ='" + obj_array[11][6] + "', height = " + obj_array[11][7] + "></center>";
+}
 
 function enigme(){
     let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso,                 Les deux derniers sont un nombre associés aux musicales de l'époque");
     console.log(code);
-    if (code=='1245'){
-        alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports')
+    if (code == '1245'){
+        //alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports');
+        //slot2.innerHTML.delete();        
+        tournedisqueMarker.bindPopup('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports' + recupBouleDisco);
         code_resolu = true;
         boule_disco_in_inventaire = true;
-        slot2.innerHTML = "<center><img src='" + obj_array[11][5] + "', width ='" + obj_array[11][6] + "', height = " + obj_array[11][7] + "></center>";
     }
     else{
         alert("Ce n'est pas le bon code : il y a un indice dans ton inventaire")
