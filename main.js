@@ -19,6 +19,8 @@ function commencer(event){
     else if(champ_pseudo != ''){
         form_OK = true;
         console.log("Let's goo");
+        window.localStorage.clear();
+        window.localStorage.setItem('pseudo',champ_pseudo);
         window.location.href="game.html";
     }
     if(!form_OK){

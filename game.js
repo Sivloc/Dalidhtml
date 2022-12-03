@@ -5,6 +5,8 @@ function start(){
     startTime = new Date();
 }
 
+console.log(window.localStorage.getItem('pseudo'));
+
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap contributors'
@@ -325,6 +327,6 @@ function end() {
     var timeDiff = endTime - startTime; //en ms
     timeDiff /= 1000;
     console.log(timeDiff);
-    localStorage.setItem('score',timeDiff);
+    window.localStorage.setItem('score',JSON.stringify(timeDiff));
 }
 
