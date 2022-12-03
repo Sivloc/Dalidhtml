@@ -1,6 +1,6 @@
 h1{
-    text-align: left;
-    margin-left: 250px;
+    text-align: right;
+    margin-right: 100px;
     color: goldenrod;
     font-family: 'Alex Brush', handwriting;
     font-size: 4cm;
@@ -32,7 +32,7 @@ h1{
 }
 body{
     margin-left: 0;
-    background-image: url("https://voi.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fvoi.2F2019.2F07.2F12.2F24008ee6-67b0-49df-bb2f-5dd0931fa642.2Ejpeg/1200x675/quality/80/dalida-son-dernier-amour-serait-il-la-cause-de-son-suicide-il-brise-le-silence.jpg");
+    background-image: url("https://static1.purepeople.com/articles/5/21/70/25/@/2950157-archives-dalida-en-concert-950x0-1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -62,23 +62,23 @@ body{
 .button_link:hover{
     color: brown;
 }
-form{
-    display: block;
-    margin: auto;
-    text-align: center;
-    font-size: 0.5cm;
-}
-#cadre{
-    height: 150px;
-    width: 350px;
-    background-color: gold;
+#fin{
+    height: 240px;
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.625);
+    color: aliceblue;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid black;
-    margin-top: 75px;
+    border-radius: 6px;
+    font-size: 25px;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 40px;
+    padding-left: 10px;
 }
 footer{
-    color: black;
+    color: aliceblue;
     position: absolute;
     bottom: 0;
     right: 0;
