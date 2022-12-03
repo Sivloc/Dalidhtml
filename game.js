@@ -71,6 +71,7 @@ zoom(aeroportMarker, obj_array[1][8], obj_array[1][9] + boutonVoler);
 
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
+    alert("Dalida arrive à Paris, elle emménage sur la plus belle avenue du monde")
 }
 function setMapOnMaison(){
     map.setView([obj_array[13][3], obj_array[13][2]], 17)
@@ -215,15 +216,17 @@ function disque(){
     }
 }
 
-function boheme(){
-    let texte = prompt("<center>Quel fameux chanteur apprécie Montmartre et ses lilas accrochés aux fenêtres?</center>");
-    if(texte == 'Aznavour' || texte == 'aznavour'){
-        montmartreMarker.remove();
-        disque_recuperable = true;
-    }
-    else{
-        alert('Donne moi juste son nom de famille !');
-    }
+ function boheme(){
+    if(lucien_morisse == true){
+        let texte = prompt("Quel fameux chanteur apprécie Montmartre et ses lilas accrochés aux fenêtres?");
+        if(texte == 'Aznavour' || texte == 'aznavour'){
+            montmartreMarker.remove();
+            disque_recuperable = true;
+        }
+        else{
+            alert('Donne moi juste son nom de famille !');
+        }
+}
 }
 
 var recupDisque = "<center><input type='submit' onclick = clickPourRecup() id='recupDisque' value='Récupérer'></center>";
@@ -235,7 +238,7 @@ function clickPourRecup(){
 
 function recupdisque(){
     if(disque_recuperable == true){
-        disquecode.bindPopup("<center>Dalida sort ensuite <I>Itsi Bitsi Petit Bikini</I> et rencontre un succès à l'international, particulièrement en Italie. <br/><b>Rendez vous au festival de la chanson de Sanremo, une ville italienne pas loin de la France</b>.</center>" + recupDisque);
+        disquecode.bindPopup("<center>Dalida sort ensuite <I>Itsi Bitsi Petit Bikini</I> et rencontre un succès à l'international, particulièrement en Italie. <br/><b>Rendez vous au festival de la chanson de Sanremo, une ville italienne pas loin de Monaco</b>.</center>" + recupDisque);
         disque_in_inventaire = true;
         disque_recuperable = false;        
     }
@@ -245,14 +248,16 @@ var recupBouleDisco = "<center><input type='submit' onclick = clickPourRecupDisc
 
 function clickPourRecupDisco(){
     slot2.innerHTML = "<center><img src='" + obj_array[11][5] + "', width ='" + obj_array[11][6] + "', height = " + obj_array[11][7] + "></center>";
+    tournedisqueMarker.remove();
 }
 
 function enigme(){
-    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso,                 Les deux derniers sont un nombre associés aux musicales de l'époque");
+    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso, Les deux derniers sont un nombre associés aux musicales de l'époque");
     console.log(code);
     if (code == '1245'){
         //alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports');
-        //slot2.innerHTML.delete();        
+        //slot2.innerHTML.delete(); 
+        slot2.innerHTML = "";       
         tournedisqueMarker.bindPopup('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports' + recupBouleDisco);
         code_resolu = true;
         boule_disco_in_inventaire = true;
@@ -319,9 +324,11 @@ function mogadorFin(){
     }
 }
 
+let boutondefin = "<center><input type='submit' link='hof.js' id='finirlejeu' value='FIN'></center>"
+
 function FinDuJeu(){
     if(mogadorDone == true){
-        MaisonMarker.bindPopup(obj_array[13][9]);
+        MaisonMarker.bindPopup(obj_array[13][9] + boutondefin);
         end()
     }
     else{
