@@ -39,7 +39,7 @@ function slot_remove(n){
 
 // MARKERS DU JEU
 let dalidaIcon = new L.icon({iconUrl: obj_array[0][5], iconSize: [obj_array[0][6], obj_array[0][7]], popupAnchor: [0, -50]});
-L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindPopup(obj_array[0][9]);
+dalidaMarker = L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindPopup(obj_array[0][9]);
 
 
 var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
@@ -59,16 +59,18 @@ let code_resolu = false;
 let boule_disco_in_inventaire = false;
 let PDSdone = false;
 let mogadorDone = false;
+let maisonDone = false;
 // Toutes les icônes et leurs marqueurs ainsi que les objets de l'inventaire
 
 let planeIcon = L.icon({iconUrl: obj_array[1][5], iconSize: [obj_array[1][6], obj_array[1][7]]});
-L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon}).addTo(map).bindPopup(obj_array[1][9] + boutonVoler);
+aeroportMarker = L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon});
+zoom(aeroportMarker, obj_array[1][8], obj_array[1][9] + boutonVoler);
 
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
 }
 function setMapOnMaison(){
-    map.setView([obj_array[13][3],obj_array[13][2]],)
+    map.setView([obj_array[13][3], obj_array[13][2]], 17)
 }
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
@@ -109,6 +111,10 @@ MaisonMarker = L.marker([obj_array[13][3],obj_array[13][2]], {icon: MaisonIcon})
 
 // GESTION DU ZOOM //
 
+// Niveau de zoom Dalida jeune
+map.on('zoom', function(){
+    zoom(dalidaMarker, obj_array[0][8], obj_array[0][9]);
+});
 // Niveau de zoom appartement
 map.on('zoom', function(){
     zoom(appartMarker, obj_array[2][8], obj_array[2][9]);
@@ -128,10 +134,7 @@ map.on('zoom', function(){
 // Niveau de zoom Palais des Sports
 map.on('zoom', function(){
     zoom(PDSmarker, obj_array[6][8], obj_array[6][9]);
-});/*
-map.on('zoom', function(){
-    zoom(disquecode, obj_array[8][8], obj_array[8][9]);
-});*/
+});
 // Niveau de zoom journal
 map.on('zoom', function(){
     zoom(journalMarker, obj_array[9][8], boutonRecupJournal);
@@ -143,11 +146,7 @@ map.on('zoom', function(){
 // Niveau de zoom maison Dalida
 map.on('zoom', function(){
     zoom(MaisonMarker, obj_array[13][8], obj_array[13][9]);
-});/*
-// Niveau de zoom tourne disque
-map.on('zoom', function(){
-    zoom(tournedisqueMarker, obj_array[14][8], obj_array[14][9]);
-});*/
+});
 // Niveau de zoom partition
 map.on('zoom', function(){
     zoom(partocheMarker, obj_array[15][8], obj_array[15][9]);
@@ -195,21 +194,25 @@ sanremoMicro.addEventListener('click',sanremoconcert);
 PDSmarker.addEventListener('click',PDSconcert);
 mogadorMarker.addEventListener('click',mogadorFin);
 appartMarker.addEventListener('click',addDelon);
-MaisonMarker.addEventListener('click',FinDuJeu)
+MaisonMarker.addEventListener('click',FinDuJeu);
+
+
+function suppAvion(){
+    if(lucien_morisse == true){
+        aeroportMarker.remove();
+    }
+}
 
 function addDelon(){
     if(alain_in_inventaire == false){
         alain_in_inventaire = true;
-        slot1.innerHTML = ("<center><img src='"+obj_array[7][5]+"', width = 80, height = 80 ><center>");
+        slot1.innerHTML = ("<center><img src='" + obj_array[7][5] + "', width ='" + obj_array[7][6] + "', height = " + obj_array[7][7] + "><center>");
     }
 }
 function disque(){
     if(lucien_morisse == false){
         // Niveau de zoom Disque Dalida
-        map.on('zoom', function(){
-            zoom(disquecode, obj_array[8][8], obj_array[8][9]);
-        });
-        //disquecode.addTo(map).bindPopup(obj_array[8][9]);
+        zoom(disquecode, obj_array[8][8], obj_array[8][9]);
         lucien_morisse = true;
     }
 }
@@ -227,7 +230,7 @@ function boheme(){
 
 function recupdisque(){
     if(disque_recuperable == true){
-        slot2.innerHTML = ("<center><img src='"+obj_array[8][5]+"', width = 80, height = 80 ><center>");
+        slot2.innerHTML = ("<center><img src='" + obj_array[8][5] + "', width ='" + obj_array[8][6] + "', height = " + obj_array[8][7] + "></center>");
         disque_in_inventaire = true;
         disque_recuperable = false;
         alert("Dalida sort ensuite Itsi Bitsi Petit Bikini et rencontre un succès à l'international, particulièrement en Italie. Elle se rend donc à Sanremo au festival de la chanson")
@@ -243,7 +246,7 @@ function enigme(){
         alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports')
         code_resolu = true;
         boule_disco_in_inventaire = true;
-        slot2.innerHTML = "<center><img src='"+obj_array[11][5]+"', width = 80, height = 80 ><center>";
+        slot2.innerHTML = "<center><img src='" + obj_array[11][5] + "', width ='" + obj_array[11][6] + "', height = " + obj_array[11][7] + "></center>";
     }
     else{
         alert("Ce n'est pas le bon code : il y a un indice dans ton inventaire")
@@ -256,10 +259,7 @@ function paroles(){
         if(texte == 'chocolat' || texte == 'chocolats' || texte == 'Chocolat' || texte == 'Chocolats'){
             alert("MERCI PAS POUR MOI,MAIS TU PEUX BIEN LES OFFRIR À UNE AUTRE");
             // Niveau de zoom tourne disque
-            map.on('zoom', function(){
-                zoom(tournedisqueMarker, obj_array[14][8], obj_array[14][9]);
-            });
-            //tournedisqueMarker.addTo(map);
+            zoom(tournedisqueMarker, obj_array[14][8], obj_array[14][9]);
             parolesdone = true;
         }
         else{

@@ -65,8 +65,8 @@ CREATE TABLE `object` (
 --
 
 INSERT INTO `object` (`id`, `name`, `latitude`, `longitude`, `ordre`, `iconUrl`, `largeurIcon`, `longueurIcon`, `minZoom`, `textePopup`) VALUES
-(1, 'Dalida', 30.048361, 31.245389, 1, '../images/dalida_jeune.jpg', 78, 100, 12, "<center>Naissance de Dalida au Caire le 17 janvier 1933. <br/> A l'âge de 18 ans, elle participe au concours de Miss Egypte et gagne le premier prix ce qui va faire qu'elle va être engagée comme actrice pour tourner des films au Caire (le Hollywood de l'Orient). <br/><b>Trouvez l'aéroport du Caire !</b></center>"),
-(2, 'Aéroport', 30.114404, 31.400849, 2, '../images/avion.png', 150, 150, 12, "<center>Repérée par un réalisateur français, elle s'envole pour Paris le 24 décembre 1954.</center>"),
+(1, 'Dalida', 30.048361, 31.245389, 1, '../images/dalida_jeune.jpg', 78, 100, 13, "<center>Naissance de Dalida au Caire le 17 janvier 1933. <br/> A l'âge de 18 ans, elle participe au concours de Miss Egypte et gagne le premier prix ce qui va faire qu'elle va être engagée comme actrice pour tourner des films au Caire (le Hollywood de l'Orient). <br/><b>Trouvez l'aéroport du Caire !</b></center>"),
+(2, 'Aéroport', 30.114404, 31.400849, 2, '../images/avion.png', 150, 150, 13, "<center>Repérée par un réalisateur français, elle s'envole pour Paris le 24 décembre 1954.</center>"),
 (3, 'Appartement', 48.871099, 2.304455, 3, '../images/appartement.png', 100, 100, 17, "<center>Installation dans un appartement proche des Champs Élysées où elle fait la rencontre d'Alain Delon, son voisin de palier.<br/><b>Allez à l'Olympia pour débuter la carrière de Dalida</b></center>"),
 (4, 'Olympia', 48.870119, 2.328325, 4, '../images/olympia_paris.jpg', 72, 96, 17, "<center>Elle rencontre Lucien Morisse (directeur artistique d'Europe 1) et Eddie Barclay (éditeur de disques) à l'Olympia,salle de spectacle et de musique dans Paris, Lucien Morisse prend sa carrière en main</center>"),
 (5, 'Montmartre', 48.886719, 2.341305, 5, '../images/charles_aznavour.png', 55, 110, 18, NULL),
