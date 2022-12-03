@@ -1,5 +1,10 @@
 #map { height: 180px; }
 
+#slot {
+    background-color: aliceblue;
+    padding: 6px 18px;
+    border-radius: 5px;
+}
 #eg{
     text-align: center;
     color:black;
@@ -9,6 +14,8 @@
     border: 5px solid black;
 }
 #barre{
+    grid-row: 0/1;
+    grid-column: 0/3;
     position: fixed;
     top: 0px;
     height: 2cm;
@@ -45,4 +52,34 @@ body{
 }
 .button_link:hover{
     color: brown;
+}
+
+#titre {
+    color: goldenrod;
+    grid-row: 1/2;
+    text-align: center;
+    font-family: 'Acme', sans-serif;
+    font-size: larger;
+}
+
+#liste {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    width: 500px;
+    height: 600px;
+    gap: 25px;
+    grid-row: 1/2;
+    margin-left: 514px;
+    margin-right: 514px;
+    margin-top: 100px;
+}
+
+#top1 {
+    color: gold;
+}
+#top2 {
+    color: silver;
+}
+#top3 {
+    color: rgb(201, 117, 16);
 }
