@@ -19,7 +19,7 @@
             <a href="main.html" class="button_link"><b>Jouer</b></a>
         </li>
         <li class="test" id="hof">
-            <a href="hof.html" class="button_link"><b>Hall of Fame</b></a>
+            <a href="hof.php" class="button_link"><b>Hall of Fame</b></a>
         </li>
         <li class="test" id="chansons">
             <a href="chansons.html" class="button_link"><b>Chansons</b></a>
@@ -50,14 +50,8 @@
         $objets[] = [$id,$name,$lon,$lat,$ordre,$iconUrl,$largeurIcon,$longueurIcon,$minZoom,$textePopup,$affichage];
     }
     ?>
-        <script type="text/javascript">
-    var obj_array = <?php echo json_encode($objets); ?>; // create the JavaScript array
-    /*initArray(obj_array); // use it
-    function initArray(obj_array){
-        for(var i = 0; i < obj_array.length; i++){
-            alert(obj_array[i]);
-        }
-    }*/
+    <script type="text/javascript">
+        var obj_array = <?php echo json_encode($objets); ?>; // create the JavaScript array
     </script>
 
     <div id="jeu">

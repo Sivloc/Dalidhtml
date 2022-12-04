@@ -13,8 +13,8 @@
 <body>
     <?php
         //Le problème est après : 
-        $request_raw = file_get_contents('php://input');
-        $json_object = json_decode($request_raw);
+        /*$request_raw = file_get_contents('php://input');
+        $json_object = json_decode($request_raw);*/
         $pseudo = $json_object['pseudo'];
         $score = $json_object['score'];
         $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase');    
@@ -25,7 +25,7 @@
             <a href="main.html" class="button_link"><b>Jouer</b></a>
         </li>
         <li class="test" id="hof">
-            <a href="hof.html" class="button_link"><b>Hall of Fame</b></a>
+            <a href="hof.php" class="button_link"><b>Hall of Fame</b></a>
         </li>
         <li class="test" id="chansons">
             <a href="chansons.html" class="button_link"><b>Chansons</b></a>
