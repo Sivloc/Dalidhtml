@@ -64,7 +64,7 @@
         <div id="map"></div>
 
         <div id="inventaire">
-            <div id="titre_inv"><p>Inventaire</p></div>
+            <div id="titre_inv"><p><b>Inventaire</b></p></div>
             <div id="slot1"></div>
             <div id="slot2"></div>
             <div id="slot3"></div>
