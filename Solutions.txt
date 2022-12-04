@@ -10,7 +10,8 @@
 --> Retourner sur le disque et le récupérer.
 --> Une fois le disque dans l'inventaire, se rendre à Sanmoreno en Italie, à l'est de monaco, à l'ouest de Imperia.
 --> Retourner à l'Olympia une fois le micro cliqué.
---> Cliquer sur l'Olympia fait maintenant apparaître un tourne-disque à côté de l'Olympia.
+--> Cliquer sur l'Olympia fait maintenant apparaître une énigme dont la réponse est "Chocolats"
+--> Une fois l'énigme résolue, un tourne-disque apparaît
 --> Cliquer sur le tourne-disque avec le disque dans l'inventaire fait apparaître une énigme.
 --> La réponse est 1245.
 --> Cliquer sur le tourne-disque pour récupérer la boule disco.
