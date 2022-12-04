@@ -221,6 +221,7 @@ function addDelon(){
         alain_in_inventaire = true;
         slot1.innerHTML = ("<center><img src='" + obj_array[7][5] + "', width ='" + obj_array[7][6] + "', height = " + obj_array[7][7] + "><center>");
         aeroportMarker.remove();
+        parisMarker.remove();
     }
 }
 
@@ -273,11 +274,11 @@ function clickPourRecupDisco(){
 
 // Enigme à code
 function enigme(){
-    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombre de pays où Dalida a été numéro 1 avec <I>Gigi L'Amoroso</I>, cette information doit sûrement traîner sur les quais de Seine près de Notre-Dame. Les deux derniers sont le nom des vinyles de l'époque.");
+    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombre de pays où Dalida a été numéro 1 avec Gigi L'Amoroso, cette information doit sûrement traîner sur les quais de Seine près de Notre-Dame. Les deux derniers sont le nom des vinyles de l'époque.");
     console.log(code);
     if (code == '1245'){
         slot2.innerHTML = "";       
-        tournedisqueMarker.bindPopup('Bravo ! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au <b>Palais des Sports, situé Porte de Versailles, dans le 15e Arrondissement</b>.' + recupBouleDisco);
+        tournedisqueMarker.bindPopup('<center>Bravo ! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au <b>Palais des Sports, situé Porte de Versailles, dans le 15e Arrondissement</b>.</center>' + recupBouleDisco);
         code_resolu = true;
         boule_disco_in_inventaire = true;
     }
@@ -295,6 +296,7 @@ function paroles(){
             // Niveau de zoom tourne disque
             zoom(tournedisqueMarker, obj_array[14][8], obj_array[14][9]);
             parolesdone = true;
+            olympiaMarker.unbindPopup();
         }
         else{
          alert("Dommage, écoute la musique et réessaye. Indice : Ca se mange")
