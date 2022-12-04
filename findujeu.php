@@ -11,6 +11,13 @@
     <link href="https://fonts.bunny.net/css?family=acme:400" rel="stylesheet" />
 </head>
 <body>
+    <?php
+        $pseudo = $_POST['pseudo'];
+        $score = $_POST['score'];
+        $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase');    
+        $result = mysqli_query($link, "INSERT INTO hof VALUES(NULL," . $pseudo . ", " . $score . ")");
+        $js_code = 'console.log(' . $pseudo . $score .')';
+    ?>
     <ul id="barre">
         <li class="test" id="accueil">
             <a href="main.html" class="button_link"><b>Jouer</b></a>

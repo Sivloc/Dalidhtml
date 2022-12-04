@@ -344,7 +344,7 @@ function mogadorFin(){
 }
 
 // Fin du jeu et bouton qui redirige vers la page de fin de jeu
-let boutondefin = "<center><input type='submit' link='findujeu.html' onclick='end()' id='finirlejeu' value='Fin'></center>";
+let boutondefin = "<center><input type='submit' onclick='end()' id='finirlejeu' value='Fin'></center>";
 
 function FinDuJeu(){
     if(mogadorDone == true){
@@ -363,6 +363,7 @@ function end() {
     console.log(timeDiff);
     window.localStorage.setItem('score',JSON.stringify(timeDiff));
     stockage();
+    window.location.href='findujeu.php';
 }
 
 // Stockage dans la base de donnée du pseudo + score.
@@ -370,9 +371,9 @@ function stockage(){
     let pseudo = window.localStorage.getItem('pseudo');
     let score = window.localStorage.getItem('score');
     let xhr = new XMLHttpRequest();
-    let data = "data=" + [pseudo,score];
-    xhr.open("POST", "score.php", true); 
+    let data = "pseudo=" + pseudo + ",score=" + score;
+    xhr.open("POST", "findujeu.php", true); 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(data);
-    console.log('sql fait!')
+    console.log('sql fait!');
 }
