@@ -78,7 +78,7 @@ INSERT INTO `object` (`id`, `name`, `latitude`, `longitude`, `ordre`, `iconUrl`,
 (11,'Coupure', NULL, NULL, 12, '../images/coupure.jpg', 87, 110, NULL, NULL),
 (12,'Boule Disco', NULL, NULL, 13, '../images/boule_disco.png', 100, 100, 17, NULL),
 (13,'Mogador', 48.875389, 2.331026, 16, '../images/mogador.jpg', 122, 81, 17, "<center>Dalida devrait être ici pourtant, où peut-elle bien être ?</center>"),
-(14,'Maison Dalida', 48.886999, 2.336988, 15, '../images/house.png', 100, 100, 16, "<center>En réalité, dans la nuit du 2 au 3 mai 1987, restée seule dans sa maison, elle se suicide par surdose de barbituriques, qu’elle avale avec du whisky.</center>"),
+(14,'Maison Dalida', 48.886999, 2.336988, 15, '../images/house.png', 80, 80, 16, "<center>En réalité, dans la nuit du 2 au 3 mai 1987, restée seule dans sa maison, elle se suicide par surdose de barbituriques, qu’elle avale avec du whisky.</center>"),
 (15,'Tourne-Disque', 48.869861, 2.326614, 10, '../images/tourne_disque.png', 90, 68, 17, NULL),
 (16,'Paris', 48.863295, 2.346045, 3, '../images/baguette.png', 90, 60, NULL, "<center>Dalida arrive à Paris, elle emménage sur la plus belle avenue du monde.</center>");
 COMMIT;

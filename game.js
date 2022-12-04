@@ -64,7 +64,6 @@ dalidaMarker = L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).a
 
 var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
 var boutonRecupJournal = L.popup({minWidth : 375,content: '<center><img src="'+obj_array[10][5]+'"></center>'});
-var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='fly' value='Aller se préparer'></center>";
 
 let planeIcon = L.icon({iconUrl: obj_array[1][5], iconSize: [obj_array[1][6], obj_array[1][7]]});
 aeroportMarker = L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon});
@@ -82,10 +81,6 @@ function paris(){
 // Set la map sur Paris
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
-}
-// Set la map sur la maison de Dalida
-function setMapOnMaison(){
-    map.setView([obj_array[13][3], obj_array[13][2]], 17)
 }
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
@@ -216,6 +211,9 @@ function addDelon(){
         slot1.innerHTML = ("<center><img src='" + obj_array[7][5] + "', width ='" + obj_array[7][6] + "', height = " + obj_array[7][7] + "><center>");
         aeroportMarker.remove();
     }
+    else{
+        appartMarker.bindPopup("<center>Dalida a déménagé.</center>");
+    }
 }
 
 // Apparition du disque
@@ -224,14 +222,13 @@ function disque(){
         // Niveau de zoom Disque Dalida
         zoom(disquecode, obj_array[8][8], obj_array[8][9]);
         lucien_morisse = true;
-        appartMarker.bindPopup("<center>Dalida a déménagé.</center>");
     }
 }
 
 // Enigme de Montmartre pour pouvoir récupérer le disque
 function boheme(){
     if(lucien_morisse == true & disque_recuperable == false){
-        let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître ?");
+        let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître ? (Donnez son nom de famille)");
         if(texte == 'Aznavour' || texte == 'aznavour'){
             montmartreMarker.remove();
             disque_recuperable = true;
@@ -239,7 +236,7 @@ function boheme(){
         else{
             alert('Donne moi juste son nom de famille !');
         }
-}
+    }
 }
 
 // Récupération du disque et mise dans l'inventaire
@@ -321,10 +318,15 @@ function sanremoconcert(){
     }
 }
 
+var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='flyHouse' value='Aller se préparer'></center>";
+// Set la map sur la maison de Dalida
+function setMapOnMaison(){
+    map.setView([obj_array[13][3], obj_array[13][2]], 16);
+}
+
 // Gestion du marker Palais des Sports
 function PDSconcert(){
     if(boule_disco_in_inventaire == true){
-        MaisonMarker.addTo(map);
         PDSmarker.bindPopup(obj_array[6][9] + boutonMaison);
         PDSdone = true;
     }
@@ -350,7 +352,6 @@ let boutondefin = "<center><input type='submit' onclick='end()' id='finirlejeu' 
 function FinDuJeu(){
     if(mogadorDone == true){
         MaisonMarker.bindPopup(obj_array[13][9] + boutondefin);
-        console.log("Maisoooooonnnnn");
     }
     else if(PDSdone == true){
         MaisonMarker.bindPopup("Maison de Dalida au 11 bis rue d'Orchampt");
