@@ -1,7 +1,7 @@
 #map { height: 180px; }
 
 #slot {
-    background-color: aliceblue;
+    background-color: bisque;
     padding: 6px 18px;
     border-radius: 5px;
 }
@@ -82,7 +82,7 @@ body{
 
 /* 1er */ 
 #top1 {
-    color: gold;
+    color: goldenrod;
     text-align: center;
 }
 #pseudo1 {

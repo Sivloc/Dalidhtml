@@ -376,10 +376,24 @@ function end() {
 function stockage(){
     let pseudo = window.localStorage.getItem('pseudo');
     let score = window.localStorage.getItem('score');
-    let xhr = new XMLHttpRequest();
-    let data = "pseudo=" + pseudo + ",score=" + score;
-    xhr.open("POST", "findujeu.php", true); 
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(data);
+    //let xhr = new XMLHttpRequest();
+    let data = {
+        pseudo: pseudo,
+        score: score
+    }
+    fetch('findujeu.php', {
+        method: 'post',
+        body: JSON.stringify(data)
+      })
+    .then(r => r.json())
+    .then(r => {
+        console.log(r)
+    })
+    //xhr.open("POST", "findujeu.php", true); 
+    //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //xhr.send(data1);
+    //xhr2.open("POST", "findujeu.php", true); 
+    //xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //xhr2.send(data2);
     console.log('post fait!');
 }

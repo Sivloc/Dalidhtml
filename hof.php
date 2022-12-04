@@ -13,6 +13,17 @@
     <link href="https://fonts.bunny.net/css?family=acme:400" rel="stylesheet" />
     <title>Hall Of Fame</title>
 </head>
+    <?php
+        $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase'); 
+        $results = mysqli_query($link, "SELECT * FROM hof ORDER BY score LIMIT 5");
+        $classement = [];
+        foreach ($results as $result) {
+            $pseudo = $result["pseudo"];
+            $score = $result["score"];
+            $classement[] = [$pseudo,$score];
+        }
+
+    ?>
 <body class="grid-container">
     <ul id="barre">
         <li class="test" id="accueil">
@@ -36,27 +47,47 @@
         </div>  
         <div id="slot">
             <div id="colonne">
-                <b id="top1">1er</b><b id="pseudo1"></b><b id="score1"></b>
+                <b id="top1">1er</b><b id="pseudo1">
+                    <?php echo $classement[0][0] ?>
+                </b><b id="score1">
+                    <?php echo $classement[0][1] ?>
+                </b>
             </div>
         </div>
         <div id="slot">
             <div id="colonne">
-                <b id="top2">2ème</b><b id="pseudo2"></b><b id="score2"></b>
+                <b id="top2">2ème</b><b id="pseudo2">
+                    <?php echo $classement[1][0] ?>
+                </b><b id="score2">
+                    <?php echo $classement[1][1] ?>
+                </b>
             </div>
         </div>
         <div id="slot">
             <div id="colonne">
-                <b id="top3">3ème</b><b id="pseudo3"></b><b id="score3"></b>
+                <b id="top3">3ème</b><b id="pseudo3"></b>
+                    <?php echo $classement[2][0] ?>
+                <b id="score3">
+                    <?php echo $classement[2][1] ?>
+                </b>
             </div>
         </div>
         <div id="slot">
             <div id="colonne">
-                <b id="top">4ème</b><b id="pseudo4"></b><b id="score4"></b>
+                <b id="top">4ème</b><b id="pseudo4">
+                    <?php echo $classement[3][0] ?>
+                </b><b id="score4">
+                    <?php echo $classement[3][1] ?>
+                </b>
             </div>
         </div>
         <div id="slot">
             <div id="colonne">
-                <b id="top">5ème</b><b id="pseudo5"></b><b id="score5"></b>
+                <b id="top">5ème</b><b id="pseudo5">
+                    <?php echo $classement[4][0] ?>
+                </b><b id="score5">
+                    <?php echo $classement[4][1] ?>
+                </b>
             </div>
         </div>
     </div>
