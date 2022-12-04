@@ -73,6 +73,7 @@ zoom(aeroportMarker, obj_array[1][8], obj_array[1][9] + boutonVoler);
 // Popup arrivée sur Paris
 let baguetteIcon = L.icon({iconUrl: obj_array[15][5], iconSize: [obj_array[15][6], obj_array[15][7]]});
 var boutonParis = "<center><input type='submit' onclick = paris() id='paris' value='Okay'></center>";
+parisMarker = L.marker([obj_array[15][3], obj_array[15][2]], {icon: baguetteIcon}).addTo(map).bindPopup(obj_array[15][9] + boutonParis);
 
 function paris(){
     parisMarker.remove();
@@ -81,7 +82,6 @@ function paris(){
 // Set la map sur Paris
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
-    parisMarker = L.marker([obj_array[15][3], obj_array[15][2]], {icon: baguetteIcon}).addTo(map).bindPopup(obj_array[15][9] + boutonParis);
 }
 // Set la map sur la maison de Dalida
 function setMapOnMaison(){
@@ -114,14 +114,11 @@ journalMarker = L.marker([obj_array[9][3],obj_array[9][2]], {icon: journalIcon})
 let mogadorIcon = L.icon({iconUrl: obj_array[12][5], iconSize: [obj_array[12][6], obj_array[12][7]]});
 mogadorMarker = L.marker([obj_array[12][3],obj_array[12][2]], {icon: mogadorIcon});
 
-let partocheIcon = L.icon({iconUrl: obj_array[15][5], iconSize: [obj_array[15][6], obj_array[15][7]]});
-partocheMarker = L.marker([obj_array[15][3],obj_array[15][2]], {icon: partocheIcon});
+let MaisonIcon = L.icon({iconUrl: obj_array[13][5], iconSize: [obj_array[13][6], obj_array[13][7]]});
+MaisonMarker = L.marker([obj_array[13][3],obj_array[13][2]], {icon: MaisonIcon});
 
 let tournedisqueIcon = L.icon({iconUrl: obj_array[14][5], iconSize: [obj_array[14][6], obj_array[14][7]]});
 tournedisqueMarker = L.marker([obj_array[14][3],obj_array[14][2]], {icon: tournedisqueIcon});
-
-let MaisonIcon = L.icon({iconUrl: obj_array[13][5], iconSize: [obj_array[13][6], obj_array[13][7]]});
-MaisonMarker = L.marker([obj_array[13][3],obj_array[13][2]], {icon: MaisonIcon});
 
 
 
@@ -163,10 +160,6 @@ map.on('zoom', function(){
 map.on('zoom', function(){
     zoom(MaisonMarker, obj_array[13][8], obj_array[13][9]);
 });
-// Niveau de zoom partition
-map.on('zoom', function(){
-    zoom(partocheMarker, obj_array[15][8], obj_array[15][9]);
-});
 
 
 // Fonction qui affiche le marker selon un certain niveau de zoom
@@ -179,6 +172,7 @@ function zoom(marker, minZoom, popup){
         marker.remove();
     }
 }
+
 
 // Ajoute un item dans l'inventaire
 function addItem(item){ 
@@ -201,6 +195,7 @@ function addItem(item){
     }
 }
 
+
 //      Tous les listeners
 montmartreMarker.addEventListener('click',boheme);
 tournedisqueMarker.addEventListener('click',enigme);
@@ -213,13 +208,13 @@ mogadorMarker.addEventListener('click',mogadorFin);
 appartMarker.addEventListener('click',addDelon);
 MaisonMarker.addEventListener('click',FinDuJeu);
 
+
 // Ajoute l'objet Alain Delon dans l'inventaire si l'utilisateur a clické sur l'appartement
 function addDelon(){
     if(alain_in_inventaire == false){
         alain_in_inventaire = true;
         slot1.innerHTML = ("<center><img src='" + obj_array[7][5] + "', width ='" + obj_array[7][6] + "', height = " + obj_array[7][7] + "><center>");
         aeroportMarker.remove();
-        parisMarker.remove();
     }
 }
 
