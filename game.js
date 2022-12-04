@@ -280,7 +280,7 @@ function enigme(){
 // Compléter les paroles pour débloquer le tourne-disque
 function paroles(){
     if(sanremodone == true & parolesdone == false & alain_in_inventaire == true){
-        let texte = prompt("N'oubliez pas les paroles:     Caramels, Bonbons et ________ ");
+        let texte = prompt("N'oubliez pas les paroles :    ♫ Caramels, Bonbons et ________ ♫");
         if(texte == 'chocolat' || texte == 'chocolats' || texte == 'Chocolat' || texte == 'Chocolats'){
             alert("Ce tube est un succès absolu !");
             // Niveau de zoom tourne disque
