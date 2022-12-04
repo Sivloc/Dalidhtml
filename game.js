@@ -377,7 +377,8 @@ function stockage(){
     let pseudo = window.localStorage.getItem('pseudo');
     let score = window.localStorage.getItem('score');
     //let xhr = new XMLHttpRequest();
-    let data = {
+    fetch('findujeu.php?pseudo='+pseudo+'&score='+score);
+    /*let data = {
         "pseudo": pseudo,
         "score": score
     }
@@ -388,7 +389,7 @@ function stockage(){
     .then(r => r.json())
     .then(r => {
         console.log(r + "Salut")
-    })
+    })*/
     //xhr.open("POST", "findujeu.php", true); 
     //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     //xhr.send(data1);

@@ -30,7 +30,7 @@
             <a href="main.html" class="button_link"><b>Jouer</b></a>
         </li>
         <li class="test" id="hof">
-            <a href="hof.html" class="button_link"><b>Hall of Fame</b></a>
+            <a href="hof.php" class="button_link"><b>Hall of Fame</b></a>
         </li>
         <li class="test" id="chansons">
             <a href="chansons.html" class="button_link"><b>Chansons</b></a>
