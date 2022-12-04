@@ -366,7 +366,7 @@ function end() {
     endTime = new Date();
     var timeDiff = endTime - startTime; //en ms
     tpoints = Math.round((1000000 - timeDiff)/10);
-    console.log(tpoints);
+    //console.log(tpoints);
     window.localStorage.setItem('score',JSON.stringify(tpoints));
     stockage();
     window.location.href='findujeu.php';
@@ -374,13 +374,11 @@ function end() {
 
 // Stockage dans la base de donnée du pseudo + score.
 function stockage(){
-    let pseudo = window.localStorage.getItem('pseudo');
-    let score = window.localStorage.getItem('score');
-    //let xhr = new XMLHttpRequest();
-    let data = {
-        pseudo: pseudo,
-        score: score
-    }
+    /*let pseudo = window.localStorage.getItem('pseudo');
+    let score = window.localStorage.getItem('score');*/
+    
+    fetch('findujeu.php?pseudo='+pseudo+'&score='+score)
+    /*
     fetch('findujeu.php', {
         method: 'post',
         body: JSON.stringify(data)
@@ -388,7 +386,7 @@ function stockage(){
     .then(r => r.json())
     .then(r => {
         console.log(r + "Salut")
-    })
+    })*/
     //xhr.open("POST", "findujeu.php", true); 
     //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     //xhr.send(data1);

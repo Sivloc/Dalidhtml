@@ -12,15 +12,14 @@
 </head>
 <body>
     <?php
-        //Le problème est après : 
-        /*$request_raw = file_get_contents('php://input');
-        $json_object = json_decode($request_raw);*/
-        $pseudo = $json_object['pseudo'];
-        $score = $json_object['score'];
         $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase');    
-        $result = mysqli_query($link, "INSERT INTO hof VALUES(NULL," . $pseudo . ", " . $score . ")");
-        $js_code = json_decode($_POST[$pseudo]);
-        echo $js_code;
+
+        if(isset($_GET['pseudo'])){
+            $pseudo = $_GET['pseudo'];
+            $score = $_GET['score'];
+            $requete = "INSERT INTO hof (pseudo, score) VALUES('$pseudo','$score')";
+            mysqli_query($link, $requete);
+        }
     ?>
     <ul id="barre">
         <li class="test" id="accueil">
