@@ -375,5 +375,5 @@ function stockage(){
     xhr.open("POST", "findujeu.php", true); 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(data);
-    console.log('sql fait!');
+    console.log('post fait!');
 }
