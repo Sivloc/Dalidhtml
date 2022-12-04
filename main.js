@@ -14,17 +14,15 @@ function commencer(event){
 
     if(champ_pseudo == ''){
         form_OK = false;
-        console.log("C'est NON");
     }
     else if(champ_pseudo != ''){
         form_OK = true;
-        console.log("Let's goo");
         window.localStorage.clear();
         window.localStorage.setItem('pseudo',champ_pseudo);
-        window.location.href="game.html";
+        window.location.href="game.php";
     }
     if(!form_OK){
         event.preventDefault();
-        alert("Mets ton pseudo stp");
+        alert("Veuillez entrer un pseudo svp");
     }
 }
