@@ -345,14 +345,12 @@ function mogadorFin(){
 }
 
 // Fin du jeu et bouton qui redirige vers la page de fin de jeu
-let boutondefin = "<center><input type='submit' link='findujeu.html' id='finirlejeu' value='Fin'></center>";
+let boutondefin = "<center><input type='submit' onclick='end()' id='finirlejeu' value='Fin'></center>";
 
 function FinDuJeu(){
     if(mogadorDone == true){
         MaisonMarker.bindPopup(obj_array[13][9] + boutondefin);
         console.log("Maisoooooonnnnn");
-        end();
-        stockage();
     }
     else if(PDSdone == true){
         MaisonMarker.bindPopup("Maison de Dalida au 11 bis rue d'Orchampt");
@@ -369,14 +367,18 @@ function end() {
     timeDiff /= 1000;
     console.log(timeDiff);
     window.localStorage.setItem('score',JSON.stringify(timeDiff));
+    stockage();
+    window.location.href='findujeu.php';
 }
 
 // Stockage dans la base de donnée du pseudo + score.
 function stockage(){
     let pseudo = window.localStorage.getItem('pseudo');
-    let score = timeDiff;
+    let score = window.localStorage.getItem('score');
     let xhr = new XMLHttpRequest();
-    let data = "data=" + [pseudo,score];
-    xhr.open("POST", "score.php", true); 
+    let data = "pseudo=" + pseudo + ",score=" + score;
+    xhr.open("POST", "findujeu.php", true); 
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(data);
+    console.log('post fait!');
 }
