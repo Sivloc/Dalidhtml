@@ -377,7 +377,7 @@ function stockage(){
     /*let pseudo = window.localStorage.getItem('pseudo');
     let score = window.localStorage.getItem('score');*/
     
-    fetch('findujeu.php?pseudo='+pseudo+'&score='+score)
+    //fetch('findujeu.php?pseudo='+pseudo+'&score='+score)
     /*
     fetch('findujeu.php', {
         method: 'post',
