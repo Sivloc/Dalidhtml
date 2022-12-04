@@ -378,8 +378,8 @@ function stockage(){
     let score = window.localStorage.getItem('score');
     //let xhr = new XMLHttpRequest();
     let data = {
-        pseudo: pseudo,
-        score: score
+        "pseudo": pseudo,
+        "score": score
     }
     fetch('findujeu.php', {
         method: 'post',

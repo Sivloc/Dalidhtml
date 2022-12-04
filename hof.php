@@ -15,7 +15,7 @@
 </head>
     <?php
         $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase'); 
-        $results = mysqli_query($link, "SELECT * FROM hof ORDER BY score LIMIT 5");
+        $results = mysqli_query($link, "SELECT * FROM hof ORDER BY score DESC LIMIT 5");
         $classement = [];
         foreach ($results as $result) {
             $pseudo = $result["pseudo"];
@@ -65,8 +65,9 @@
         </div>
         <div id="slot">
             <div id="colonne">
-                <b id="top3">3ème</b><b id="pseudo3"></b>
+                <b id="top3">3ème</b><b id="pseudo3">
                     <?php echo $classement[2][0] ?>
+                </b>
                 <b id="score3">
                     <?php echo $classement[2][1] ?>
                 </b>

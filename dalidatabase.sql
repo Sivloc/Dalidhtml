@@ -38,8 +38,12 @@ CREATE TABLE `hof` (
 --
 
 INSERT INTO `hof` (`id`, `pseudo`, `score`) VALUES
-(1, 'test', 200);
-
+(1, 'Clovis', 93011),
+(2, 'Clément', 88745),
+(3, 'Johnny', 45871),
+(4, 'Alain Du Long', 75412),
+(5, 'Cloclo', 45162);
+COMMIT;
 -- --------------------------------------------------------
 
 --
