@@ -64,7 +64,6 @@ dalidaMarker = L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).a
 
 var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
 var boutonRecupJournal = L.popup({minWidth : 375,content: '<center><img src="'+obj_array[10][5]+'"></center>'});
-var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='fly' value='Aller se préparer'></center>";
 
 let planeIcon = L.icon({iconUrl: obj_array[1][5], iconSize: [obj_array[1][6], obj_array[1][7]]});
 aeroportMarker = L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon});
@@ -82,10 +81,6 @@ function paris(){
 // Set la map sur Paris
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
-}
-// Set la map sur la maison de Dalida
-function setMapOnMaison(){
-    map.setView([obj_array[13][3], obj_array[13][2]], 17)
 }
 
 let appartIcon = L.icon({iconUrl: obj_array[2][5], iconSize: [obj_array[2][6], obj_array[2][7]]});
@@ -216,6 +211,9 @@ function addDelon(){
         slot1.innerHTML = ("<center><img src='" + obj_array[7][5] + "', width ='" + obj_array[7][6] + "', height = " + obj_array[7][7] + "><center>");
         aeroportMarker.remove();
     }
+    else{
+        appartMarker.bindPopup("<center>Dalida a déménagé.</center>");
+    }
 }
 
 // Apparition du disque
@@ -229,8 +227,8 @@ function disque(){
 
 // Enigme de Montmartre pour pouvoir récupérer le disque
 function boheme(){
-    if(lucien_morisse == true){
-        let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître ?");
+    if(lucien_morisse == true & disque_recuperable == false){
+        let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître ? (Donnez son nom de famille)");
         if(texte == 'Aznavour' || texte == 'aznavour'){
             montmartreMarker.remove();
             disque_recuperable = true;
@@ -238,7 +236,7 @@ function boheme(){
         else{
             alert('Donne moi juste son nom de famille !');
         }
-}
+    }
 }
 
 // Récupération du disque et mise dans l'inventaire
@@ -253,7 +251,6 @@ function recupdisque(){
     if(disque_recuperable == true){
         disquecode.bindPopup("<center>Dalida sort ensuite <I>Itsi Bitsi Petit Bikini</I> et rencontre un succès à l'international, particulièrement en Italie. <br/><b>Rendez vous au festival de la chanson de Sanremo, une ville italienne pas loin de Monaco</b>.</center>" + recupDisque);
         disque_in_inventaire = true;
-        disque_recuperable = false;        
     }
 }
 
@@ -283,7 +280,7 @@ function enigme(){
 // Compléter les paroles pour débloquer le tourne-disque
 function paroles(){
     if(sanremodone == true & parolesdone == false & alain_in_inventaire == true){
-        let texte = prompt("N'oubliez pas les paroles:     Caramels, Bonbons et ________ ");
+        let texte = prompt("N'oubliez pas les paroles :    ♫ Caramels, Bonbons et ________ ♫");
         if(texte == 'chocolat' || texte == 'chocolats' || texte == 'Chocolat' || texte == 'Chocolats'){
             alert("Ce tube est un succès absolu !");
             // Niveau de zoom tourne disque
@@ -321,10 +318,15 @@ function sanremoconcert(){
     }
 }
 
+var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='flyHouse' value='Aller se préparer'></center>";
+// Set la map sur la maison de Dalida
+function setMapOnMaison(){
+    map.setView([obj_array[13][3], obj_array[13][2]], 16);
+}
+
 // Gestion du marker Palais des Sports
 function PDSconcert(){
     if(boule_disco_in_inventaire == true){
-        MaisonMarker.addTo(map);
         PDSmarker.bindPopup(obj_array[6][9] + boutonMaison);
         PDSdone = true;
     }
@@ -340,6 +342,7 @@ function mogadorFin(){
         mogadorDone = true;
     }
     else{
+        mogadorMarker.bindPopup("<center>Le théâtre Mogador, construit en 1913 et inauguré en 1919, est une salle de spectacles parisienne située au 25 de la rue de Mogador, dans le 9e arrondissement de Paris.</center>")
     }
 }
 
@@ -350,8 +353,11 @@ function FinDuJeu(){
     if(mogadorDone == true){
         MaisonMarker.bindPopup(obj_array[13][9] + boutondefin);
     }
-    else{
+    else if(PDSdone == true){
         MaisonMarker.bindPopup("Maison de Dalida au 11 bis rue d'Orchampt");
+    }
+    else{
+        MaisonMarker.bindPopup("Maison à vendre.")
     }
 }
 
