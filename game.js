@@ -368,7 +368,7 @@ function end() {
 // Stockage dans la base de donnée du pseudo + score.
 function stockage(){
     let pseudo = window.localStorage.getItem('pseudo');
-    let score = timeDiff;
+    let score = window.localStorage.getItem('score');
     let xhr = new XMLHttpRequest();
     let data = "data=" + [pseudo,score];
     xhr.open("POST", "score.php", true); 
