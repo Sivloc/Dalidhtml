@@ -218,7 +218,7 @@ function disque(){
 
  function boheme(){
     if(lucien_morisse == true){
-        let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître?");
+        let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître ?");
         if(texte == 'Aznavour' || texte == 'aznavour'){
             montmartreMarker.remove();
             disque_recuperable = true;
@@ -252,13 +252,13 @@ function clickPourRecupDisco(){
 }
 
 function enigme(){
-    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombres de pays où Dalida à été numéro 1 avec Gigi L'Amoroso, cette information doit sûrement traîner dans les quais de Seine près de Notre-Dame. Les deux derniers sont le nom des vinyles de l'époque");
+    let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombre de pays où Dalida a été numéro 1 avec <I>Gigi L'Amoroso</I>, cette information doit sûrement traîner sur les quais de Seine près de Notre-Dame. Les deux derniers sont le nom des vinyles de l'époque.");
     console.log(code);
     if (code == '1245'){
         //alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports');
         //slot2.innerHTML.delete(); 
         slot2.innerHTML = "";       
-        tournedisqueMarker.bindPopup('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports' + recupBouleDisco);
+        tournedisqueMarker.bindPopup('Bravo ! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au <b>Palais des Sports, situé Porte de Versailles, dans le 15e Arrondissement</b>.' + recupBouleDisco);
         code_resolu = true;
         boule_disco_in_inventaire = true;
     }
@@ -311,7 +311,7 @@ function PDSconcert(){
         PDSdone = true;
     }
     else{
-        PDSmarker.bindPopup("<center>Le Dôme de Paris - Palais des Sports est une salle de spectacles de grandes dimensions située place de la Porte-de-Versailles dans le 15e arrondissement de Paris. Elle peut accueillir jusqu'à plus de cinq mille spectateurs.</center>")
+        PDSmarker.bindPopup("<center>Le Dôme de Paris - Palais des Sports est une salle de spectacles de grandes dimensions située place de la Porte de Versailles dans le 15e arrondissement de Paris. Elle peut accueillir jusqu'à plus de cinq mille spectateurs.</center>")
     }
 }
 
@@ -324,7 +324,8 @@ function mogadorFin(){
     }
 }
 
-let boutondefin = "<center><input type='submit' link='hof.js' id='finirlejeu' value='FIN'></center>"
+/*var lien = window.location.href = 'findujeu.html';*/
+let boutondefin = "<center><input type='submit' link='findujeu.html' id='finirlejeu' value='Fin'></center>";
 
 function FinDuJeu(){
     if(mogadorDone == true){
