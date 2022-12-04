@@ -224,12 +224,13 @@ function disque(){
         // Niveau de zoom Disque Dalida
         zoom(disquecode, obj_array[8][8], obj_array[8][9]);
         lucien_morisse = true;
+        appartMarker.bindPopup("<center>Dalida a déménagé.</center>");
     }
 }
 
 // Enigme de Montmartre pour pouvoir récupérer le disque
 function boheme(){
-    if(lucien_morisse == true){
+    if(lucien_morisse == true & disque_recuperable == false){
         let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître ?");
         if(texte == 'Aznavour' || texte == 'aznavour'){
             montmartreMarker.remove();
@@ -253,7 +254,6 @@ function recupdisque(){
     if(disque_recuperable == true){
         disquecode.bindPopup("<center>Dalida sort ensuite <I>Itsi Bitsi Petit Bikini</I> et rencontre un succès à l'international, particulièrement en Italie. <br/><b>Rendez vous au festival de la chanson de Sanremo, une ville italienne pas loin de Monaco</b>.</center>" + recupDisque);
         disque_in_inventaire = true;
-        disque_recuperable = false;        
     }
 }
 
@@ -340,6 +340,7 @@ function mogadorFin(){
         mogadorDone = true;
     }
     else{
+        mogadorMarker.bindPopup("<center>Le théâtre Mogador, construit en 1913 et inauguré en 1919, est une salle de spectacles parisienne située au 25 de la rue de Mogador, dans le 9e arrondissement de Paris.</center>")
     }
 }
 
@@ -349,11 +350,15 @@ let boutondefin = "<center><input type='submit' link='findujeu.html' id='finirle
 function FinDuJeu(){
     if(mogadorDone == true){
         MaisonMarker.bindPopup(obj_array[13][9] + boutondefin);
+        console.log("Maisoooooonnnnn");
         end();
         stockage();
     }
-    else{
+    else if(PDSdone == true){
         MaisonMarker.bindPopup("Maison de Dalida au 11 bis rue d'Orchampt");
+    }
+    else{
+        MaisonMarker.bindPopup("Maison à vendre.")
     }
 }
 
