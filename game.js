@@ -6,8 +6,6 @@ function start(){
     startTime = new Date();
 }
 
-console.log(window.localStorage.getItem('pseudo'));
-
 // Carte
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -354,7 +352,8 @@ let boutondefin = "<center><input type='submit' link='findujeu.html' id='finirle
 function FinDuJeu(){
     if(mogadorDone == true){
         MaisonMarker.bindPopup(obj_array[13][9] + boutondefin);
-        end()
+        end();
+        stockage();
     }
     else{
         MaisonMarker.bindPopup("Maison de Dalida au 11 bis rue d'Orchampt");
@@ -370,3 +369,12 @@ function end() {
     window.localStorage.setItem('score',JSON.stringify(timeDiff));
 }
 
+// Stockage dans la base de donnée du pseudo + score.
+function stockage(){
+    let pseudo = window.localStorage.getItem('pseudo');
+    let score = timeDiff;
+    let xhr = new XMLHttpRequest();
+    let data = "data=" + [pseudo,score];
+    xhr.open("POST", "score.php", true); 
+    xhr.send(data);
+}
