@@ -18,8 +18,6 @@
         $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase');    
         $requete = "INSERT INTO hof (pseudo, score) VALUES ('$pseudo', '$score')";
         mysqli_query($link, $requete);
-        //$result = mysqli_query($link, "UPDATE hof SET score='$score', pseudo='$pseudo'");
-        //$result = mysqli_query($link, "INSERT INTO hof VALUES (NULL, ".$pseudo.", ".$score.")" );
     ?>
     <ul id="barre">
         <li class="test" id="accueil">
@@ -43,7 +41,7 @@
             Merci d'avoir joué à notre jeu ! On espère qu'il vous aura plus ! 
             Dalida ayant eu une vie tragique, nous avons essayé de rendre l'histoire la plus "gaie" possible.
             <br/>Mais nous vous invitons à aller voir l'onglet Ressources afin d'en connaître plus sur elle !
-            <br/>Et allez voir votre classement dans le Hall of Fame !<?php echo $pseudo; echo $score ?>
+            <br/>Et allez voir votre classement dans le Hall of Fame !
         </p>
     </div>
     <footer>Escape game réalisé par Clovis et Clément</footer>
