@@ -320,7 +320,8 @@ function sanremoconcert(){
 var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='flyHouse' value='Aller se préparer'></center>";
 // Set la map sur la maison de Dalida
 function setMapOnMaison(){
-    map.setView([obj_array[13][3], obj_array[13][2]], 16);
+    map.setView([48.886999, 2.336988], 16);
+    PDSmarker.unbindPopup();
 }
 
 // Gestion du marker Palais des Sports
@@ -364,9 +365,9 @@ function FinDuJeu(){
 function end() {
     endTime = new Date();
     var timeDiff = endTime - startTime; //en ms
-    timeDiff /= 1000;
-    //console.log(timeDiff);
-    window.localStorage.setItem('score',JSON.stringify(timeDiff));
+    tpoints = Math.round((1000000 - timeDiff)/10);
+    console.log(tpoints);
+    window.localStorage.setItem('score',JSON.stringify(tpoints));
     stockage();
     window.location.href='findujeu.php';
 }
