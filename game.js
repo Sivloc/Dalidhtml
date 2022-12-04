@@ -265,7 +265,6 @@ function clickPourRecupDisco(){
 // Enigme à code
 function enigme(){
     let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombre de pays où Dalida a été numéro 1 avec Gigi L'Amoroso, cette information doit sûrement traîner sur les quais de Seine près de Notre-Dame. Les deux derniers sont le nom des vinyles de l'époque.");
-    console.log(code);
     if (code == '1245'){
         slot2.innerHTML = "";       
         tournedisqueMarker.bindPopup('<center>Bravo ! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au <b>Palais des Sports, situé Porte de Versailles, dans le 15e Arrondissement</b>.</center>' + recupBouleDisco);
@@ -366,7 +365,7 @@ function end() {
     endTime = new Date();
     var timeDiff = endTime - startTime; //en ms
     timeDiff /= 1000;
-    console.log(timeDiff);
+    //console.log(timeDiff);
     window.localStorage.setItem('score',JSON.stringify(timeDiff));
     stockage();
     window.location.href='findujeu.php';
@@ -387,7 +386,7 @@ function stockage(){
       })
     .then(r => r.json())
     .then(r => {
-        console.log(r)
+        console.log(r + "Salut")
     })
     //xhr.open("POST", "findujeu.php", true); 
     //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -395,5 +394,4 @@ function stockage(){
     //xhr2.open("POST", "findujeu.php", true); 
     //xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     //xhr2.send(data2);
-    console.log('post fait!');
 }

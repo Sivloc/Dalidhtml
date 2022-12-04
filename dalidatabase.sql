@@ -30,16 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `hof` (
   `id` int(11) NOT NULL,
   `pseudo` varchar(20) NOT NULL,
-  `score` int(11) NOT NULL,
-  `classement` int(11) NOT NULL
+  `score` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `hof`
 --
 
-INSERT INTO `hof` (`id`, `pseudo`, `score`, `classement`) VALUES
-(1, 'test', 200, 1);
+INSERT INTO `hof` (`id`, `pseudo`, `score`) VALUES
+(1, 'test', 200);
 
 -- --------------------------------------------------------
 
