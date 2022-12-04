@@ -5,3 +5,4 @@ let s1 = document.getElementById("score1");
 p1.innerHTML = pseudo;
 s1.innerHTML = score + " s";
 console.log(pseudo);
+
