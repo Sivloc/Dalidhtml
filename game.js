@@ -1,3 +1,4 @@
+// Set la map sur le Caire
 let map = L.map('map').setView([30.050, 31.235], 13);
 window.onload = start();
 
@@ -7,11 +8,13 @@ function start(){
 
 console.log(window.localStorage.getItem('pseudo'));
 
+// Carte
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
+// Inventaire
 var xhttp = new XMLHttpRequest();
 
 let slot1 = document.getElementById("slot1");
@@ -38,16 +41,6 @@ function slot_remove(n){
     n.innerHTML = null;
 }
 
-
-// MARKERS DU JEU
-let dalidaIcon = new L.icon({iconUrl: obj_array[0][5], iconSize: [obj_array[0][6], obj_array[0][7]], popupAnchor: [0, -50]});
-dalidaMarker = L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindPopup(obj_array[0][9]);
-
-
-var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
-var boutonRecupJournal = L.popup({minWidth : 375,content: '<center><img src="'+obj_array[10][5]+'"></center>'});
-var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='fly' value='Aller se préparer'></center>";
-
 // Les booléens pour gérer la progression du jeu
 
 let aznavour = false;
@@ -63,16 +56,28 @@ let boule_disco_in_inventaire = false;
 let PDSdone = false;
 let mogadorDone = false;
 let maisonDone = false;
+
+// MARKERS DU JEU
 // Toutes les icônes et leurs marqueurs ainsi que les objets de l'inventaire
+
+let dalidaIcon = new L.icon({iconUrl: obj_array[0][5], iconSize: [obj_array[0][6], obj_array[0][7]], popupAnchor: [0, -50]});
+dalidaMarker = L.marker([obj_array[0][3],obj_array[0][2]], {icon: dalidaIcon}).addTo(map).bindPopup(obj_array[0][9]);
+
+
+var boutonVoler = "<center><input type='submit' onclick = setMapOnParis() id='fly' value='Y aller'></center>";
+var boutonRecupJournal = L.popup({minWidth : 375,content: '<center><img src="'+obj_array[10][5]+'"></center>'});
+var boutonMaison = "<center><input type='submit' onclick = setMapOnMaison() id='fly' value='Aller se préparer'></center>";
 
 let planeIcon = L.icon({iconUrl: obj_array[1][5], iconSize: [obj_array[1][6], obj_array[1][7]]});
 aeroportMarker = L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon});
 zoom(aeroportMarker, obj_array[1][8], obj_array[1][9] + boutonVoler);
 
+// Set la map sur Paris
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
     alert("Dalida arrive à Paris, elle emménage sur la plus belle avenue du monde")
 }
+// Set la map sur la maison de Dalida
 function setMapOnMaison(){
     map.setView([obj_array[13][3], obj_array[13][2]], 17)
 }
@@ -168,6 +173,7 @@ function zoom(marker, minZoom, popup){
     }
 }
 
+// Ajoute un item dans l'inventaire
 function addItem(item){ 
     item.usable = true;
     console.log("add")
@@ -200,7 +206,7 @@ mogadorMarker.addEventListener('click',mogadorFin);
 appartMarker.addEventListener('click',addDelon);
 MaisonMarker.addEventListener('click',FinDuJeu);
 
-
+// Ajoute l'objet Alain Delon dans l'inventaire si l'utilisateur a clické sur l'appartement
 function addDelon(){
     if(alain_in_inventaire == false){
         alain_in_inventaire = true;
@@ -208,6 +214,8 @@ function addDelon(){
         aeroportMarker.remove();
     }
 }
+
+// Apparition du disque
 function disque(){
     if(lucien_morisse == false){
         // Niveau de zoom Disque Dalida
@@ -216,7 +224,8 @@ function disque(){
     }
 }
 
- function boheme(){
+// Enigme de Montmartre pour pouvoir récupérer le disque
+function boheme(){
     if(lucien_morisse == true){
         let texte = prompt("Quel fameux chanteur se rappelle d'un temps que les moins de 20 ans ne peuvent pas connaître ?");
         if(texte == 'Aznavour' || texte == 'aznavour'){
@@ -229,6 +238,7 @@ function disque(){
 }
 }
 
+// Récupération du disque et mise dans l'inventaire
 var recupDisque = "<center><input type='submit' onclick = clickPourRecup() id='recupDisque' value='Récupérer'></center>";
 
 function clickPourRecup(){
@@ -244,6 +254,7 @@ function recupdisque(){
     }
 }
 
+// Récupération de la boule disco et mise dans l'inventaire
 var recupBouleDisco = "<center><input type='submit' onclick = clickPourRecupDisco() id='recupBouleDisco' value='Récupérer'></center>";
 
 function clickPourRecupDisco(){
@@ -251,12 +262,11 @@ function clickPourRecupDisco(){
     tournedisqueMarker.remove();
 }
 
+// Enigme à code
 function enigme(){
     let code = prompt("Trouve le code : Les deux premiers chiffres sont le nombre de pays où Dalida a été numéro 1 avec <I>Gigi L'Amoroso</I>, cette information doit sûrement traîner sur les quais de Seine près de Notre-Dame. Les deux derniers sont le nom des vinyles de l'époque.");
     console.log(code);
     if (code == '1245'){
-        //alert('Bravo! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au Palais des Sports');
-        //slot2.innerHTML.delete(); 
         slot2.innerHTML = "";       
         tournedisqueMarker.bindPopup('Bravo ! A partir de maintenant, Dalida va commencer à produire des titres disco, elle donne un concert phénoménal au <b>Palais des Sports, situé Porte de Versailles, dans le 15e Arrondissement</b>.' + recupBouleDisco);
         code_resolu = true;
@@ -267,6 +277,7 @@ function enigme(){
     }
 }
 
+// Compléter les paroles pour débloquer le tourne-disque
 function paroles(){
     if(sanremodone == true & parolesdone == false & alain_in_inventaire == true){
         let texte = prompt("N'oubliez pas les paroles:     Caramels, Bonbons et ________ ");
@@ -280,6 +291,7 @@ function paroles(){
          alert("Dommage, écoute la musique et réessaye. Indice : Ca se mange")
         }
     }
+    // Affiche d'autres popup sur l'Olympia
     else if(disque_in_inventaire == true){
         let rand = Math.floor(Math.random() * 3) + 1;
         if(rand==1){
@@ -294,6 +306,7 @@ function paroles(){
     }
 }
 
+// Le joueur est obligé de passer par Sanremo pour continuer
 function sanremoconcert(){
     if(disque_in_inventaire == true){
         sanremodone = true;
@@ -304,6 +317,7 @@ function sanremoconcert(){
     }
 }
 
+// Gestion du marker Palais des Sports
 function PDSconcert(){
     if(boule_disco_in_inventaire == true){
         MaisonMarker.addTo(map);
@@ -315,6 +329,7 @@ function PDSconcert(){
     }
 }
 
+// Accès au théâtre Mogador après être passé par le Palais des Sports
 function mogadorFin(){
     if(PDSdone == true){
         mogadorMarker.bindPopup(obj_array[12][9]);
@@ -324,7 +339,7 @@ function mogadorFin(){
     }
 }
 
-/*var lien = window.location.href = 'findujeu.html';*/
+// Fin du jeu et bouton qui redirige vers la page de fin de jeu
 let boutondefin = "<center><input type='submit' link='findujeu.html' id='finirlejeu' value='Fin'></center>";
 
 function FinDuJeu(){
@@ -337,6 +352,7 @@ function FinDuJeu(){
     }
 }
 
+// Calcul du temps de jeu
 function end() {
     endTime = new Date();
     var timeDiff = endTime - startTime; //en ms
