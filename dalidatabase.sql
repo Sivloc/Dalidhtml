@@ -80,7 +80,7 @@ INSERT INTO `object` (`id`, `name`, `latitude`, `longitude`, `ordre`, `iconUrl`,
 (13,'Mogador', 48.875389, 2.331026, NULL, '../images/mogador.jpg', 171, 114, 17, "<center>Dalida devrait être ici pourtant, où peut-elle bien être ?</center>"),
 (14,'Maison Dalida', 48.886999, 2.336988, NULL, '../images/house.png', 100, 100, 16, "<center>En réalité, dans la nuit du 2 au 3 mai 1987, restée seule dans sa maison, elle se suicide par surdose de barbituriques, qu’elle avale avec du whisky.</center>"),
 (15,'Tourne-Disque', 48.869861, 2.326614, NULL, '../images/tourne_disque.png', 90, 68, 17, NULL),
-(16,'Partition', NULL, NULL, NULL, '../images/partoche.jpg', 56, 73, 17, NULL);
+(16,'Paris', 48.863295, 2.346045, NULL, '../images/baguette.png', 90, 60, NULL, "<center>Dalida arrive à Paris, elle emménage sur la plus belle avenue du monde.</center>");
 COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -72,10 +72,18 @@ let planeIcon = L.icon({iconUrl: obj_array[1][5], iconSize: [obj_array[1][6], ob
 aeroportMarker = L.marker([obj_array[1][3], obj_array[1][2]], {icon: planeIcon});
 zoom(aeroportMarker, obj_array[1][8], obj_array[1][9] + boutonVoler);
 
+// Popup arrivée sur Paris
+let baguetteIcon = L.icon({iconUrl: obj_array[15][5], iconSize: [obj_array[15][6], obj_array[15][7]]});
+var boutonParis = "<center><input type='submit' onclick = paris() id='paris' value='Okay'></center>";
+
+function paris(){
+    parisMarker.remove();
+}
+
 // Set la map sur Paris
 function setMapOnParis(){
     map.setView([48.856, 2.341], 13);
-    alert("Dalida arrive à Paris, elle emménage sur la plus belle avenue du monde")
+    parisMarker = L.marker([obj_array[15][3], obj_array[15][2]], {icon: baguetteIcon}).addTo(map).bindPopup(obj_array[15][9] + boutonParis);
 }
 // Set la map sur la maison de Dalida
 function setMapOnMaison(){
@@ -116,6 +124,7 @@ tournedisqueMarker = L.marker([obj_array[14][3],obj_array[14][2]], {icon: tourne
 
 let MaisonIcon = L.icon({iconUrl: obj_array[13][5], iconSize: [obj_array[13][6], obj_array[13][7]]});
 MaisonMarker = L.marker([obj_array[13][3],obj_array[13][2]], {icon: MaisonIcon});
+
 
 
 // GESTION DU ZOOM //
