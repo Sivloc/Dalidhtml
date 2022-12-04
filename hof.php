@@ -30,7 +30,7 @@
             <a href="main.html" class="button_link"><b>Jouer</b></a>
         </li>
         <li class="test" id="hof">
-            <a href="hof.php" class="button_link"><b>Hall of Fame</b></a>
+            <a href="hof.html" class="button_link"><b>Hall of Fame</b></a>
         </li>
         <li class="test" id="chansons">
             <a href="chansons.html" class="button_link"><b>Chansons</b></a>
@@ -48,7 +48,7 @@
         <div id="slot">
             <div id="colonne">
                 <b id="top1">1er</b><b id="pseudo1">
-                    <?php echo $classement[0][0] ?>
+                    <?php echo$classement[0][0] ?>
                 </b><b id="score1">
                     <?php echo $classement[0][1] ?>
                 </b>
