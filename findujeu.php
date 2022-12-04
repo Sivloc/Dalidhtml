@@ -16,7 +16,9 @@
         $pseudo = $_GET['pseudo'];
         $score = $_GET['score'];
         $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase');    
-        $result = mysqli_query($link, "UPDATE hof SET score='$score', pseudo='$pseudo'");
+        $requete = "INSERT INTO hof (pseudo, score) VALUES ('$pseudo', '$score')";
+        mysqli_query($link, $requete);
+        //$result = mysqli_query($link, "UPDATE hof SET score='$score', pseudo='$pseudo'");
         //$result = mysqli_query($link, "INSERT INTO hof VALUES (NULL, ".$pseudo.", ".$score.")" );
     ?>
     <ul id="barre">
