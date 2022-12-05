@@ -13,8 +13,9 @@
 <body>
     <?php
         //Le problème est après : 
-        $pseudo = $_GET['pseudo'];
-        $score = $_GET['score'];
+        $json = json_decode(file_get_contents('php://input'),true);
+        $score = $json['score'];
+        $pseudo = $json['pseudo'];
         $link = mysqli_connect('localhost', 'root', 'root', 'dalidatabase');    
         $requete = "INSERT INTO hof (pseudo, score) VALUES ('$pseudo', '$score')";
         mysqli_query($link, $requete);

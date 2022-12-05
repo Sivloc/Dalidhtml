@@ -376,17 +376,20 @@ function end() {
 function stockage(){
     /*let pseudo = window.localStorage.getItem('pseudo');
     let score = window.localStorage.getItem('score');*/
-    
+    /*let data = {
+        'score' : score,
+        'pseudo' : pseudo
+    }*/
     //fetch('findujeu.php?pseudo='+pseudo+'&score='+score)
-    /*
+    
     fetch('findujeu.php', {
         method: 'post',
-        body: JSON.stringify(data)
+        body: JSON.stringify({['score']:score,['pseudo']:pseudo})
       })
     .then(r => r.json())
     .then(r => {
         console.log(r + "Salut")
-    })*/
+    })
     //xhr.open("POST", "findujeu.php", true); 
     //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     //xhr.send(data1);
