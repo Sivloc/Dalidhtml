@@ -374,13 +374,8 @@ function end() {
 
 // Stockage dans la base de donnée du pseudo + score.
 function stockage(){
-    /*let pseudo = window.localStorage.getItem('pseudo');
-    let score = window.localStorage.getItem('score');*/
-    /*let data = {
-        'score' : score,
-        'pseudo' : pseudo
-    }*/
-    //fetch('findujeu.php?pseudo='+pseudo+'&score='+score)
+    let pseudo = window.localStorage.getItem('pseudo');
+    let score = window.localStorage.getItem('score');
     
     fetch('findujeu.php', {
         method: 'post',
